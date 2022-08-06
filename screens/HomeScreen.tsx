@@ -16,6 +16,7 @@ import {
 import NativeBaseIcon from "../components/NativeBaseIcon";
 import { NavigationProp } from "@react-navigation/native";
 import { ScreenNames } from "../navigation";
+import Lottie from "lottie-react-native";
 
 type Props = {
   navigation: NavigationProp<any>;
@@ -29,6 +30,10 @@ export default function HomeScreen({ navigation }: Props) {
       px={4}
       flex={1}
     >
+      <Lottie
+        source={require("../assets/animations/lottie/logo.json")}
+        autoPlay
+      />
       <VStack space={5} alignItems="center">
         <NativeBaseIcon />
         <Heading size="lg">Welcome to NativeBase</Heading>

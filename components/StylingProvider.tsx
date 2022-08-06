@@ -1,5 +1,5 @@
 import React, { ReactChild } from "react";
-import { extendTheme, NativeBaseProvider } from "native-base";
+import { Box, extendTheme, NativeBaseProvider } from "native-base";
 
 const theme = extendTheme({
   config: {
@@ -18,5 +18,11 @@ type Props = {
 };
 
 export default function StylingProvider({ children }: Props) {
-  return <NativeBaseProvider theme={theme}>{children}</NativeBaseProvider>;
+  return (
+    <NativeBaseProvider theme={theme}>
+      <Box flex={1} safeArea>
+        {children}
+      </Box>
+    </NativeBaseProvider>
+  );
 }

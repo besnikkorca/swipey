@@ -9,7 +9,6 @@ import {
   TextInputChangeEventData,
 } from "react-native";
 import SessionManager from "../services/SessionManager";
-import { ScreenNames } from "../navigation/types";
 interface Props {
   navigation: NavigationProp<any>;
 }
@@ -27,7 +26,7 @@ function userFormReducer(state, action) {
   }
 }
 
-export default function ({ navigation }: Props) {
+export default function ({}: Props) {
   const [{ email, password }, dispatch] = useReducer(
     userFormReducer,
     initialFormValue
@@ -36,10 +35,7 @@ export default function ({ navigation }: Props) {
   const handleChange = (key: string) => (payload: string) =>
     dispatch({ type: key, payload });
 
-  const handleLogin = () => SessionManager.login(email, password);
-  const handleLoginAnonymous = () => SessionManager.loginAnonymous();
-  const handleForgotPassword = () => window.alert("Not implemented yet!");
-  const handleSignUp = () => navigation.navigate(ScreenNames.signUp);
+  const handleSignUp = () => SessionManager.signUp(email, password);
   return (
     <KeyboardAvoidingView
       h={{
@@ -73,17 +69,8 @@ export default function ({ navigation }: Props) {
             maxWidth="300px"
             onChangeText={handleChange("password")}
           />
-          <Button onPress={handleLogin} size="lg">
-            Login
-          </Button>
-          <Button onPress={handleLoginAnonymous} variant="link">
-            Sign in anonymously
-          </Button>
-          <Button onPress={handleForgotPassword} variant="link">
-            Forgot your password?
-          </Button>
-          <Button onPress={handleSignUp} variant="link">
-            No account! Sign up?
+          <Button onPress={handleSignUp} size="lg">
+            CreateAccount
           </Button>
         </Box>
       </Box>

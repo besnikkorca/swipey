@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import auth from "@react-native-firebase/auth";
-import UserContext from "./UserContext";
-import { User } from "../../../src/types/user";
+import UserContext from "../../contexts/UserContext";
+import { User } from "types/user";
 
 type Props = {
   children: React.ReactChild;

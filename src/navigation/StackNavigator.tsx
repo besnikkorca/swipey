@@ -7,7 +7,7 @@ import HomeScreen from "../screens/HomeScreen";
 import AboutScreen from "../screens/AboutScreen";
 import LoginScreen from "../screens/LoginScreen";
 import SignUpScreen from "../screens/SignUpScreen";
-import UserContext from "../components/contexts/UserContext/UserContext";
+import UserContext from "../contexts/UserContext";
 import { Box } from "native-base";
 
 const Stack = createNativeStackNavigator();

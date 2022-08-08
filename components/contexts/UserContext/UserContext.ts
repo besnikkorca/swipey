@@ -1,10 +1,5 @@
 import { createContext } from "react";
-import { User } from "../../../types/user";
-
-interface UserContextType {
-  user: User;
-  initializing: boolean;
-}
+import { UserContextType } from "../../../src/types/user";
 
 export default createContext<UserContextType>({
   user: null,

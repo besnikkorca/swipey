@@ -10,7 +10,8 @@
 #endif
 
 @import Firebase;
-#import <Firebase/Firebase.h>
+#import <Firebase.h>
+//#import <Firebase/Firebase.h>
 
 #if defined(FB_SONARKIT_ENABLED) && __has_include(<FlipperKit/FlipperClient.h>)
 #import <FlipperKit/FlipperClient.h>
@@ -41,20 +42,12 @@ static void InitializeFlipper(UIApplication *application) {
   InitializeFlipper(application);
 #endif
   
-  // NEW CODE
-  NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.js" fallbackResource:nil];
-
-    RCTBridge *bridge = [[RCTBridge alloc] initWithBundleURL:jsCodeLocation
-                                                moduleProvider:nil
-                                                 launchOptions:launchOptions];
-    #if RCT_DEV
-     [bridge moduleForClass:[RCTDevLoadingView class]];
-    #endif
-  
-  // END CODE -> below code got commented due to https://github.com/facebook/react-native/issues/16376
-  
-//  RCTBridge *bridge = [self.reactDelegate createBridgeWithDelegate:self launchOptions:launchOptions];
+  RCTBridge *bridge = [self.reactDelegate createBridgeWithDelegate:self launchOptions:launchOptions];
+  #if RCT_DEV
+   [bridge moduleForClass:[RCTDevLoadingView class]];
+  #endif
   RCTRootView *rootView = [self.reactDelegate createRootViewWithBridge:bridge moduleName:@"main" initialProperties:nil];
+  
   rootView.backgroundColor = [UIColor whiteColor];
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [self.reactDelegate createRootViewController];

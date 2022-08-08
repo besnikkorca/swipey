@@ -20,9 +20,9 @@ type Props = {
 export default function StylingProvider({ children }: Props) {
   return (
     <NativeBaseProvider theme={theme}>
-      <Box flex={1} safeArea>
-        {children}
-      </Box>
+      {/* <Box flex={1} safeArea bgColor={"red.100"}> */}
+      {children}
+      {/* </Box> */}
     </NativeBaseProvider>
   );
 }

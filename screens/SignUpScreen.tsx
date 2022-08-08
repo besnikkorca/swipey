@@ -13,7 +13,10 @@ interface Props {
   navigation: NavigationProp<any>;
 }
 
-const initialFormValue = { email: "", password: "" };
+const initialFormValue = {
+  email: `besnik.korca${Math.round(Math.random() * 100)}@gmail.com`,
+  password: "testtest",
+};
 
 function userFormReducer(state, action) {
   switch (action.type) {
@@ -58,6 +61,7 @@ export default function ({}: Props) {
             placeholder="Email"
             w="75%"
             maxWidth="300px"
+            value={email}
             onChangeText={handleChange("email")}
           />
           <Input
@@ -67,6 +71,7 @@ export default function ({}: Props) {
             type="password"
             w="75%"
             maxWidth="300px"
+            value={password}
             onChangeText={handleChange("password")}
           />
           <Button onPress={handleSignUp} size="lg">

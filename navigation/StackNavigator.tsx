@@ -8,30 +8,20 @@ import AboutScreen from "../screens/AboutScreen";
 import LoginScreen from "../screens/LoginScreen";
 import SignUpScreen from "../screens/SignUpScreen";
 import UserContext from "../components/contexts/UserContext/UserContext";
+import { Box } from "native-base";
 
 const Stack = createNativeStackNavigator();
 
 const options = { headerShown: false };
 
-export default function Navigation() {
+type Props = {};
+
+export default function ({}: Props) {
   const { user } = useContext(UserContext);
   return (
-    <NavigationContainer>
+    <Box flex={1} safeAreaBottom>
       <Stack.Navigator>
-        {user ? (
-          <>
-            <Stack.Screen
-              options={options}
-              name={ScreenNames.login}
-              component={LoginScreen}
-            ></Stack.Screen>
-            <Stack.Screen
-              options={options}
-              name={ScreenNames.signUp}
-              component={SignUpScreen}
-            ></Stack.Screen>
-          </>
-        ) : (
+        {!!user ? (
           <>
             <Stack.Screen
               options={options}
@@ -44,8 +34,21 @@ export default function Navigation() {
               component={AboutScreen}
             />
           </>
+        ) : (
+          <>
+            <Stack.Screen
+              options={options}
+              name={ScreenNames.login}
+              component={LoginScreen}
+            ></Stack.Screen>
+            <Stack.Screen
+              options={options}
+              name={ScreenNames.signUp}
+              component={SignUpScreen}
+            ></Stack.Screen>
+          </>
         )}
       </Stack.Navigator>
-    </NavigationContainer>
+    </Box>
   );
 }

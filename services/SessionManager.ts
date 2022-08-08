@@ -1,9 +1,15 @@
 import auth from "@react-native-firebase/auth";
 
 export default {
+  logOut() {
+    return auth().signOut();
+  },
   signUp(email: string, password: string) {
     return auth()
       .createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        return res;
+      })
       .catch((err) => {
         if (err.code === "auth/email-already-in-use") {
           console.log("This email address is already in use!");
@@ -13,8 +19,7 @@ export default {
           console.log("That email address is invalid!");
         }
 
-        console.log("err - ", err);
-        console.log("err.message - ", err.message);
+        throw err;
       });
   },
   login(email: string, password: string) {
@@ -27,7 +32,7 @@ export default {
         if (err.code === "auth/operation-not-allowed") {
           console.log("Enable anonymous in your firebase console");
         }
-        console.error(err);
+        throw err;
       });
   },
   signOut() {

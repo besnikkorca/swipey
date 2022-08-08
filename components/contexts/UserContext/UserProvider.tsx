@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
+import auth from "@react-native-firebase/auth";
 import UserContext from "./UserContext";
+import { User } from "../../../src/types/user";
 
 type Props = {
   children: React.ReactChild;
@@ -9,15 +10,16 @@ type Props = {
 export default function ({ children }: Props): JSX.Element {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
+  const [user, setUser] = useState<User>(null);
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(function (user) {
-      console.log("user !!!!!!! ", user);
       setUser(user);
       if (initializing) setInitializing(false);
     });
-    return subscriber;
+    return () => {
+      return subscriber();
+    };
   }, []);
 
   return (

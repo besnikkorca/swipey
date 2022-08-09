@@ -2034,6 +2034,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-15.2.0.tgz#ab3e1b801bfa259cdeb46a883f0dbc2985c9e2f5"
   integrity sha512-bHjZW3CCj0CNPUm0NaZB1jNRVhUydvBRGej/40mgXf/iiSmooFqgk9DbQq6HZrEJ+eo8NHoQMH38qJ/LIBz2rw==
 
+"@react-native-firebase/storage@^15.3.0":
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-15.3.0.tgz#49841259aa9a54ad4cd45277d3793590b6d37ecb"
+  integrity sha512-GtuQcWItR9sf9Uf3Dz8RJIgkw7lk2uyBb6B2vzpaoeCZbnstxf/CQ3PDV+RUy0z6VfJqSc4C/0JO+uiBtQtsQQ==
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
@@ -3612,6 +3617,14 @@ expo-constants@~13.0.2:
     "@expo/config" "^6.0.6"
     uuid "^3.3.2"
 
+expo-document-picker@~10.1.3:
+  version "10.1.3"
+  resolved "https://registry.yarnpkg.com/expo-document-picker/-/expo-document-picker-10.1.3.tgz#68a82635e9473eb19f128193f1111e7400055a7d"
+  integrity sha512-JKARJBnQ5Aug92hg2MFKrM2LqiMQabcUBYJwBhwSuc0A7dNUeprw0hkaOK0D9Fk7Ae9t+flRX0N5R/aADek3HA==
+  dependencies:
+    "@expo/config-plugins" "^4.0.2"
+    uuid "^3.3.2"
+
 expo-error-recovery@~3.0.5:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/expo-error-recovery/-/expo-error-recovery-3.0.5.tgz#1802b733e998606a8fcfb0abe6682c334319ef75"
@@ -3631,6 +3644,14 @@ expo-font@~10.0.5:
   integrity sha512-x9YwM0xLkDdSvFjeNbyuh33Q1Hk3uc2jbMuuAN5W2ZVcUZqG0M8GCX/KV/D/7rYqdXKbliQA5r44MyDwZe/XRw==
   dependencies:
     fontfaceobserver "^2.1.0"
+
+expo-image-picker@~12.0.1:
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-12.0.2.tgz#4789c5419208ff8ede557784368a7f18f3878c30"
+  integrity sha512-rAoNGtofV5cg3UN+cdIGDVfbMvbutBX6uNV7jCIEw/WZxZlbW+R7HC8l5lGDFtoLVqcpkHE/6JpAXvESxVSAOA==
+  dependencies:
+    "@expo/config-plugins" "^4.0.2"
+    uuid "7.0.2"
 
 expo-keep-awake@~10.0.2:
   version "10.0.2"
@@ -6821,6 +6842,11 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
+
+uuid@7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.2.tgz#7ff5c203467e91f5e0d85cfcbaaf7d2ebbca9be6"
+  integrity sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==
 
 uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"

@@ -2,16 +2,16 @@ import React from "react";
 import { Text, HStack, Center, Heading, VStack, Box } from "native-base";
 import CompanyIcon from "../components/CompanyIcon";
 import { NavigationProp } from "@react-navigation/native";
+
 import Button from "components/Form/Button";
+import DocumentUploader from "components/Form/DocumentUploader";
+import { CloudDirs } from "types/global";
 
 type Props = {
   navigation: NavigationProp<any>;
 };
 
 export default function HomeScreen({ navigation }: Props) {
-  const handleUploadCV = () => {
-    alert("Implement upload CV ");
-  };
   return (
     <Box flex={1} alignItems="center" mt="5">
       <Heading size="lg">Welcome to Swipey</Heading>
@@ -28,7 +28,11 @@ export default function HomeScreen({ navigation }: Props) {
           <HStack space={2}>
             <Text>Upload your CV before you start looking for jobs!</Text>
           </HStack>
-          <Button onPress={handleUploadCV}>Upload CV</Button>
+          <DocumentUploader
+            cloudDir={CloudDirs.documents}
+            text="Upload your CV"
+          />
+          {/* <ImageUploader /> */}
         </VStack>
       </Center>
     </Box>

@@ -11,7 +11,8 @@
       "hooks/*": ["./src/hooks/*"],
       "navigation/*": ["./src/navigation/*"],
       "services/*": ["./src/services/*"],
-      "contexts/*": ["./src/contexts/*"]
+      "contexts/*": ["./src/contexts/*"],
+      "utils/*": ["./src/utils/*"]
     }
   }
 }

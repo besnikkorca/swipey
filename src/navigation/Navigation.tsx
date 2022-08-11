@@ -4,18 +4,15 @@ import { Box } from "native-base";
 import StackNavigator from "./StackNavigator";
 import useUserData from "../hooks/useUserData";
 import AppDrawer from "./DrawerNavigator/AppDrawer";
+import { themeModeColors } from "_constants/theme";
+import useNavigation from "hooks/useNavigation";
 
 export default function () {
   const { user } = useUserData();
+
   return (
     <NavigationContainer>
-      {user ? (
-        <AppDrawer />
-      ) : (
-        <Box safeArea flex={1}>
-          <StackNavigator />
-        </Box>
-      )}
+      {user ? <AppDrawer /> : <StackNavigator />}
     </NavigationContainer>
   );
 }

@@ -1,22 +1,18 @@
 import React from "react";
 import { Text, HStack, Center, Heading, VStack, Box } from "native-base";
-import CompanyIcon from "../components/CompanyIcon";
-import { NavigationProp } from "@react-navigation/native";
 
-import Button from "components/Form/Button";
 import DocumentUploader from "components/Form/DocumentUploader";
 import { CloudDirs } from "types/global";
+import useNavigation from "hooks/useNavigation";
+import BrandIcon from "components/theme/atoms/icons/BrandIcon";
 
-type Props = {
-  navigation: NavigationProp<any>;
-};
-
-export default function HomeScreen({ navigation }: Props) {
+export default function HomeScreen() {
+  const navigation = useNavigation();
   return (
     <Box flex={1} alignItems="center" mt="5">
       <Heading size="lg">Welcome to Swipey</Heading>
       <Box flex={1} justifyContent="center">
-        <CompanyIcon />
+        <BrandIcon />
       </Box>
       <Center
         _dark={{ bg: "blueGray.900" }}

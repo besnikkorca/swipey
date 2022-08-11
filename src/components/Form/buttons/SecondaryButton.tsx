@@ -1,19 +1,26 @@
 import React from "react";
 import { Button, IButtonProps } from "native-base";
 
-export default function ({
+export default function PrimaryButton({
   onPress,
   children,
-  variant,
+  variant = "outline",
 }: IButtonProps): JSX.Element {
   return (
     <Button
-      textTransform="uppercase"
       onPress={onPress}
       variant={variant}
       mx="4"
       my="2"
+      py="3"
       borderRadius={50}
+      borderColor="white"
+      _text={{
+        color: "white",
+        textTransform: "uppercase",
+        fontWeight: "semibold",
+        // fontSize: "md",
+      }}
     >
       {children}
     </Button>

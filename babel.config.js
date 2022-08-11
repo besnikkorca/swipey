@@ -16,6 +16,9 @@ module.exports = function (api) {
             services: "./src/services",
             contexts: "./src/contexts",
             utils: "./src/utils",
+            // named with underscore since there seem's to be
+            // an underlying library which is named constants
+            _constants: "./src/constants",
           },
         },
       ],

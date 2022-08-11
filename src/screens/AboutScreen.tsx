@@ -1,7 +1,8 @@
 import { NavigationProp } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import useNavigation from "hooks/useNavigation";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { ScreenNames } from "../navigation/types";
+import { AppScreens } from "../navigation/types";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,18 +13,15 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
-  navigation: NavigationProp<any>;
-};
-
-export default function AboutScreen({ navigation }: Props) {
+export default function AboutScreen() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text>About screen bo ya!</Text>
       <StatusBar style="auto" />
       <Button
         title="Go to home"
-        onPress={() => navigation.navigate(ScreenNames.home)}
+        onPress={() => navigation.navigate(AppScreens.home)}
       />
     </View>
   );

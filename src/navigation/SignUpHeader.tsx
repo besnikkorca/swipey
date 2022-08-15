@@ -2,16 +2,12 @@ import Text from "components/theme/atoms/text/Text";
 import { Box, HStack, Icon, IconButton, StatusBar } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Platform } from "react-native";
+import useNavigation from "hooks/useNavigation";
 import { HeaderHeight } from "_constants/header";
-import BrandIcon from "components/theme/atoms/icons/BrandIcon";
 
-type Props = {
-  // TODO: fix type of drawer navigation
-  navigation: any;
-};
-
-export default function ({ navigation }: Props): JSX.Element {
-  const handleToggleDrawer = () => navigation.openDrawer();
+export default function (): JSX.Element {
+  const navigation = useNavigation();
+  const handlePressBack = () => navigation.goBack();
   return (
     <>
       <Box safeAreaTop />
@@ -25,19 +21,15 @@ export default function ({ navigation }: Props): JSX.Element {
         <IconButton
           icon={
             <Icon
-              onPress={handleToggleDrawer}
+              onPress={handlePressBack}
               size="xl"
               fontWeight={700}
               as={MaterialIcons}
-              name="menu"
+              name={Platform.OS === "ios" ? "arrow-back-ios" : "arrow-back"}
               color="gray.600"
             />
           }
         />
-        <Box w="130">
-          <BrandIcon />
-        </Box>
-        <Box w="50" />
       </HStack>
     </>
   );

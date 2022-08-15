@@ -2,6 +2,9 @@ export enum SignUpScreens {
   signUpEmail = "signUpUser",
   signUpFirstName = "signUpFirstName",
   signUpLastName = "signUpLastName",
+  signUpCV = "signUpCV",
+  signUpPassword = "signUpPassword",
+  signUpPerform = "signUpPerform",
   rules = "rules",
   signUpRecruiter = "signUpRecruiter",
 }

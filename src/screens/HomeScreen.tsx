@@ -10,7 +10,6 @@ export default function HomeScreen() {
   const navigation = useNavigation();
   return (
     <Box flex={1} alignItems="center" mt="5">
-      <Heading size="lg">Welcome to Swipey</Heading>
       <Box flex={1} justifyContent="center">
         <BrandIcon />
       </Box>
@@ -22,13 +21,8 @@ export default function HomeScreen() {
       >
         <VStack space={5} alignItems="center">
           <HStack space={2}>
-            <Text>Upload your CV before you start looking for jobs!</Text>
+            <Text>Finally Home</Text>
           </HStack>
-          <DocumentUploader
-            cloudDir={CloudDirs.documents}
-            text="Upload your CV"
-          />
-          {/* <ImageUploader /> */}
         </VStack>
       </Center>
     </Box>

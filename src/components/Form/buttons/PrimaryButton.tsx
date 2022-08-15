@@ -19,6 +19,7 @@ export default function PrimaryButton({
       py={py}
       borderRadius={50}
       bgColor="white"
+      shadow={2}
       _text={{
         color: "gray.500",
         textTransform: "uppercase",

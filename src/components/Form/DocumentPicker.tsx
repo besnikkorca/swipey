@@ -2,7 +2,8 @@ import * as DocumentPicker from "expo-document-picker";
 import { Box } from "native-base";
 
 import Progress from "components/loading/Progress";
-import Button from "components/Form/Button";
+import PrimaryButton from "./buttons/PrimaryButton";
+import SecondaryButton from "./buttons/SecondaryButton";
 
 interface Props {
   text?: string;
@@ -19,19 +20,24 @@ export default function ({
 }: Props) {
   const handlePickDocument = async () => {
     const res = await DocumentPicker.getDocumentAsync();
-    console.log("res !!!!! ", res);
     if (res.type === "success") {
       if (onPick) onPick(res.uri);
     }
   };
 
   return (
-    <Box flex={1}>
-      <Button onPress={handlePickDocument}>{text}</Button>
+    <>
+      <PrimaryButton
+        isLoading={isLoading}
+        onPress={handlePickDocument}
+        color="black"
+      >
+        {text}
+      </PrimaryButton>
       <Progress
         isVisible={loadPercentage !== 0}
         loadPercentage={loadPercentage}
       />
-    </Box>
+    </>
   );
 }

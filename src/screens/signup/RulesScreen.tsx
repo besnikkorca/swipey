@@ -44,7 +44,10 @@ export default function () {
               title="Stay professional"
               content="A true professional never loses their composure even if the counterpart does."
             />
-            <TextArticle title="No tolerance" content="Report bad behavior." />
+            <TextArticle
+              title="Zero tolerance"
+              content="Don't allow anyone to be rude to you. Report bad behavior."
+            />
           </Box>
         </Box>
         <KeyboardAvoidingView

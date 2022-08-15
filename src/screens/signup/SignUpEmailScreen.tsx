@@ -1,51 +1,44 @@
 import React from "react";
-import { NavigationProp } from "@react-navigation/native";
-import { Box } from "native-base";
-import { themeModeColorsBAW } from "_constants/theme";
-import ScreenWrapper from "../ScreenWrapper";
-import Text from "components/theme/atoms/text/Text";
-import Title from "components/theme/atoms/text/Title";
-import InputUnderline from "components/Form/inputs/InputUnderline";
-import ContinueButton from "components/Form/buttons/ContinueButton";
-import KeyboardAvoidingView from "components/KeyboardAvoidingView";
-import { KeyboardVerticalOffset } from "_constants/header";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import useNavigation from "hooks/useNavigation";
-import { AuthScreens, SignUpScreens } from "navigation/types";
+import { SignUpScreens } from "navigation/types";
+import { ValidationRules } from "types/form";
+import useEmailForm from "hooks/forms/useEmailForm";
+import useSignUpData from "hooks/useSignUpData";
+import QuestionScreen from "components/theme/organisms/QuestionScreen";
+import isValidEmail from "utils/validation/isValidEmail";
+
+const rules: ValidationRules = {
+  maxLength: {
+    value: 35,
+    message: "Email cannot contain more than 35 characters",
+  },
+  minLength: {
+    value: 5,
+    message: "Email must have at least 5 characters",
+  },
+  required: "Email is required",
+  validate: isValidEmail,
+};
 
 export default function () {
-  const navigation = useNavigation();
-  const insets = useSafeAreaInsets();
+  const { handleUpdate } = useSignUpData(SignUpScreens.rules);
 
-  const handleOnContinue = () => navigation.navigate(SignUpScreens.rules);
+  const { control, handleSubmit, formState } = useEmailForm();
+  const error = (formState.errors?.email?.message || "") as string;
 
+  console.log("formState.isValid !!1 ", formState.isValid);
   return (
-    <ScreenWrapper
-      safeArea={false}
-      safeAreaBottom={true}
-      themeColors={themeModeColorsBAW}
-    >
-      <Box flex={1} alignItems="flex-start" mx="10">
-        <Box flex={1}>
-          <Title>What's your email ?</Title>
-          <Text color="gray.400" fontSize="md" textAlign="left" mb="5">
-            Increase your hiring chances, verify your email.
-          </Text>
-          <InputUnderline
-            autoCapitalize="none"
-            autoFocus
-            placeholder="Enter email"
-          />
-        </Box>
-        <KeyboardAvoidingView
-          keyboardVerticalOffset={KeyboardVerticalOffset + insets.bottom}
-          flex={1}
-          justifyContent="flex-end"
-          alignSelf="stretch"
-        >
-          <ContinueButton onPress={handleOnContinue}>continue</ContinueButton>
-        </KeyboardAvoidingView>
-      </Box>
-    </ScreenWrapper>
+    <QuestionScreen
+      onPress={handleSubmit(handleUpdate)}
+      isValid={formState.isValid}
+      autoCompleteType="email"
+      autoCorrect={false}
+      fieldName="email"
+      rules={rules}
+      control={control}
+      error={error}
+      titleText="What's your email ?"
+      subText="Increase your hiring chances, verify your email."
+      placeholder="Enter email"
+    />
   );
 }

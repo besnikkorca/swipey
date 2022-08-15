@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, IButtonProps } from "native-base";
 
-export default function PrimaryButton({
+export default function ({
   onPress,
   children,
   variant,

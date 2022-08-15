@@ -6,3 +6,6 @@ export enum CloudDirs {
   documents = "documents",
   images = "images",
 }
+
+export type GenericStringVoidFunc = (str: string) => void;
+export type GenericVoidFunc = () => void;

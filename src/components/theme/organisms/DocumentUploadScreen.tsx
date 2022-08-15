@@ -10,38 +10,29 @@ import { KeyboardVerticalOffset } from "_constants/header";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Text from "../atoms/text/Text";
 import { FormInputProps } from "types/form";
+import DocumentUploader from "components/Form/DocumentUploader";
+import PrimaryButton from "components/Form/buttons/PrimaryButton";
+import { GenericVoidFunc } from "types/global";
 
 type Props = {
   titleText: string;
   subText?: string;
   ctaText?: string;
-  placeholder: string;
   error?: string | undefined;
-  onPress: () => void;
-  // TODO: Fix types
-  autoCompleteType?: any;
-  autoCorrect?: any;
-  type?: "text" | "password";
-  isValid: boolean;
+  buttonText?: string;
+  onUpload?: GenericVoidFunc;
 } & FormInputProps;
 
 export default function ({
   titleText,
   subText,
-  ctaText = "continue",
-  placeholder,
   fieldName,
   control,
   rules,
   error,
-  onPress,
-  autoCompleteType,
-  autoCorrect,
-  type,
-  isValid,
+  buttonText,
+  onUpload,
 }: Props) {
-  const insets = useSafeAreaInsets();
-
   return (
     <ScreenWrapper
       safeArea={false}
@@ -52,33 +43,19 @@ export default function ({
         <Box flex={1}>
           <Title>{titleText}</Title>
           {subText && (
-            <Text color="gray.400" fontSize="md" textAlign="left" mb="5">
+            <Text color="gray.400" fontSize="md" textAlign="left" mb="5" mt="2">
               {subText}
             </Text>
           )}
-          <InputUnderline
-            error={error}
+          <DocumentUploader
+            onUpload={onUpload}
+            text={buttonText}
             rules={rules}
-            type={type}
-            autoCompleteType={autoCompleteType}
-            autoCorrect={autoCorrect}
             fieldName={fieldName}
             control={control}
-            autoCapitalize="none"
-            autoFocus
-            placeholder={placeholder}
+            error={error}
           />
         </Box>
-        <KeyboardAvoidingView
-          keyboardVerticalOffset={KeyboardVerticalOffset + insets.bottom}
-          flex={1}
-          justifyContent="flex-end"
-          alignSelf="stretch"
-        >
-          <ContinueButton isValid={isValid} onPress={onPress}>
-            {ctaText}
-          </ContinueButton>
-        </KeyboardAvoidingView>
       </Box>
     </ScreenWrapper>
   );

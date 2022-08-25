@@ -1042,6 +1042,8 @@ PODS:
   - React-jsinspector (0.64.3)
   - react-native-safe-area-context (3.3.2):
     - React-Core
+  - react-native-webview (11.15.0):
+    - React-Core
   - React-perflogger (0.64.3)
   - React-RCTActionSheet (0.64.3):
     - React-Core/RCTActionSheetHeaders (= 0.64.3)
@@ -1106,10 +1108,10 @@ PODS:
     - React-cxxreact (= 0.64.3)
     - React-jsi (= 0.64.3)
     - React-perflogger (= 0.64.3)
-  - RNFBApp (15.2.0):
+  - RNFBApp (15.3.0):
     - Firebase/CoreOnly (= 9.3.0)
     - React-Core
-  - RNFBAuth (15.2.0):
+  - RNFBAuth (15.3.0):
     - Firebase/Auth (= 9.3.0)
     - React-Core
     - RNFBApp
@@ -1154,8 +1156,8 @@ PODS:
   - RNScreens (3.10.2):
     - React-Core
     - React-RCTImage
-  - RNSVG (12.1.1):
-    - React
+  - RNSVG (12.2.0):
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -1194,6 +1196,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -1306,6 +1309,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -1367,7 +1372,7 @@ SPEC CHECKSUMS:
   ExpoModulesCore: 32c0ccb47f477d330ee93db72505380adf0de09a
   EXSplashScreen: 21669e598804ee810547dbb6692c8deb5dd8dbf3
   FBLazyVector: c71c5917ec0ad2de41d5d06a5855f6d5eda06971
-  FBReactNativeSpec: c4f65c17a5a98ac0aaedca6633cd27828324c7cb
+  FBReactNativeSpec: 2bed66e9e8812f3ee71f68c56c4a8d9c1ee5669d
   Firebase: ef75abb1cdbc746d5a38f4e26c422c807b189b8c
   FirebaseAnalytics: bf46f5163f44097ce2c789de0b3e6f87f1da834a
   FirebaseAppCheckInterop: 63119cdfc94b16c3e9421513c17f597aee2ea225
@@ -1406,6 +1411,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: df6abc9fafbecb8e5b7a5fbc5e6d4bd017d594d5
   React-jsinspector: 34e23860273a23695342f58eed3ffd3ba10c31e0
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
+  react-native-webview: e89bf2dba26a04cda967814df3ed1be99f291233
   React-perflogger: cc76a4254d19640f1d8ad1c66fdee800414b805c
   React-RCTActionSheet: 7448f049318d8d7e8a9a1ebb742ada721757eea8
   React-RCTAnimation: fb9b3fa1a4a9f5e6ab01b3368693ce69860ba76a
@@ -1418,16 +1424,16 @@ SPEC CHECKSUMS:
   React-RCTVibration: c7f845861e79eae13dc1e8217a3cf47a3945b504
   React-runtimeexecutor: 493d9abb8b23c3f84e19ae221eeba92cadcb70dc
   ReactCommon: 8fea6422328e2fc093e25c9fac67adbcf0f04fb4
-  RNFBApp: c9723c07e0a315538dfc9deea60ffb072b2f44d6
-  RNFBAuth: c22d28bd4ade508e7b32d82fde0d6d0a8d56d90c
+  RNFBApp: 76b92696120036159a27f2e61d124e0a1364af97
+  RNFBAuth: b188d8be3f796d0ca142b2e17b4fddeae4b00383
   RNFBFirestore: a8aa2d9cc4ecea956737dd3dfca694da1db6bbbb
   RNFBStorage: d48b630145380b6acab4a22071a451723b700142
   RNGestureHandler: e1099204721a17a89c81fcd1cc2e92143dc040fb
   RNReanimated: 58e7b950e0172235ff8296dd39ec145f9577e301
   RNScreens: d6da2b9e29cf523832c2542f47bf1287318b1868
-  RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
+  RNSVG: 4ecc2e8f38b6ebe7889909570c26f3abe8059767
   Yoga: e6ecf3fa25af9d4c87e94ad7d5d292eedef49749
 
 PODFILE CHECKSUM: 5b87b1f3a56c1729e10c9f0fc3b8e268b866fffa
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

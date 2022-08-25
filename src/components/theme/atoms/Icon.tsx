@@ -1,7 +1,7 @@
 import { Icon, IIconProps } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 
-type Props = {} & IIconProps;
+type Props = IIconProps;
 
 export default function ({
   size = "xl",

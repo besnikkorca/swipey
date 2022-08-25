@@ -1,5 +1,5 @@
 import React from "react";
-import StackNavigator from "../StackNavigator";
+import TabsNavigator from "../BottomTabsNavigator/BottomTabsNavigator";
 import DrawerContent from "./DrawerContent";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Header from "navigation/Header";
@@ -14,7 +14,7 @@ export default function () {
       }}
       drawerContent={(props) => <DrawerContent {...props} />}
     >
-      <Drawer.Screen name="App" component={StackNavigator} />
+      <Drawer.Screen name="App" component={TabsNavigator} />
     </Drawer.Navigator>
   );
 }

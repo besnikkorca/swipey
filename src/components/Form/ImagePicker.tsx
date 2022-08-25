@@ -4,6 +4,7 @@ import { Box, Image, Progress, View } from "native-base";
 
 import Button from "components/Form/Button";
 import { SharedProps } from "./types";
+import getImageAlt from "utils/file/getImageAlt";
 
 type Props = {
   onPick?: (filePath: string) => void;
@@ -33,11 +34,6 @@ export default function ({
     }
   };
 
-  function getImageAlt() {
-    const splitName = image?.split("/");
-    return splitName?.[splitName?.length - 1];
-  }
-
   useEffect(() => {
     if (onPick && image) onPick(image);
   }, [image]);
@@ -52,7 +48,7 @@ export default function ({
           <Box flex={1}>
             <Image
               source={{ uri: image }}
-              alt={getImageAlt()}
+              alt={getImageAlt(image)}
               style={{ width: 200, height: 200 }}
             />
             {loadPercentage !== 0 && (

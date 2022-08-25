@@ -19,4 +19,10 @@ export enum AppScreens {
   about = "about",
 }
 
+export enum TabsScreens {
+  swipeCompanies = "swipeCompanies",
+  likedByCompanies = "likedByCompanies",
+  matchedCompanies = "matchedCompanies",
+}
+
 export type ScreenNames = AppScreens | AuthScreens | SignUpScreens;

@@ -4,6 +4,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Platform } from "react-native";
 import { HeaderHeight } from "_constants/header";
 import BrandIcon from "components/theme/atoms/icons/BrandIcon";
+import { themeModeColorsBAW } from "_constants/theme";
 
 type Props = {
   // TODO: fix type of drawer navigation
@@ -14,8 +15,9 @@ export default function ({ navigation }: Props): JSX.Element {
   const handleToggleDrawer = () => navigation.openDrawer();
   return (
     <>
-      <Box safeAreaTop />
+      <Box safeAreaTop {...themeModeColorsBAW} />
       <HStack
+        {...themeModeColorsBAW}
         px="1"
         justifyContent="space-between"
         alignItems="center"

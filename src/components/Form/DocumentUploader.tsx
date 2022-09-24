@@ -1,20 +1,19 @@
-import React from "react";
-import { Box, FormControl } from "native-base";
-import { Controller } from "react-hook-form";
+import React from 'react'
+import { FormControl } from 'native-base'
+import { Controller } from 'react-hook-form'
 
-import DocumentPicker from "components/Form/DocumentPicker";
-import { CloudDirs, GenericVoidFunc } from "types/global";
-import useUploadFile from "hooks/files/useUploadFile";
-import { FormInputProps } from "types/form";
-import ContinueButton from "./buttons/ContinueButton";
+import DocumentPicker from 'components/Form/DocumentPicker'
+import { CloudDirs, GenericVoidFunc } from 'types/global'
+import useUploadFile from 'hooks/files/useUploadFile'
+import { FormInputProps } from 'types/form'
 
 type Props = {
-  cloudDir?: CloudDirs;
-  text?: string;
-  onUpload?: GenericVoidFunc;
-} & FormInputProps;
+  cloudDir?: CloudDirs
+  text?: string
+  onUpload?: GenericVoidFunc
+} & FormInputProps
 
-export default function ({
+export default function DocumentUploader({
   cloudDir = CloudDirs.documents,
   text,
   control,
@@ -23,7 +22,7 @@ export default function ({
   onUpload,
 }: Props): JSX.Element {
   const { handleFileUpload, isLoading, loadPercentage } =
-    useUploadFile(cloudDir);
+    useUploadFile(cloudDir)
 
   return (
     <FormControl>
@@ -41,5 +40,5 @@ export default function ({
         )}
       />
     </FormControl>
-  );
+  )
 }

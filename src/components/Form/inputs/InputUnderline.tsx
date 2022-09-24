@@ -1,13 +1,13 @@
-import { FormControl, IInputProps, Input } from "native-base";
-import { Controller } from "react-hook-form";
-import { FormInputProps } from "types/form";
+import { FormControl, IInputProps, Input } from 'native-base'
+import { Controller } from 'react-hook-form'
+import { FormInputProps } from 'types/form'
 
-type InputProps = IInputProps & FormInputProps;
+type InputProps = IInputProps & FormInputProps
 
-export default function ({
-  fontSize = "xl",
-  placeholder = "enter email",
-  w = "100%",
+export default function InputUnderline({
+  fontSize = 'xl',
+  placeholder = 'enter email',
+  w = '100%',
   fieldName,
   control,
   type,
@@ -38,5 +38,5 @@ export default function ({
       />
       {error && <FormControl.ErrorMessage>{error}</FormControl.ErrorMessage>}
     </FormControl>
-  );
+  )
 }

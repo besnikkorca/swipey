@@ -3,7 +3,7 @@ import { UserWithDetails } from 'types/user'
 
 type Props = { user: UserWithDetails; imageIdx: number }
 
-export default function ({ user, imageIdx }: Props) {
+export default function ImagesProgressLines({ user, imageIdx }: Props) {
   return (
     <HStack position="absolute" zIndex={100} top={2} mx={2}>
       {user.sections.length > 1 &&

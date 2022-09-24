@@ -1,29 +1,29 @@
-import React from "react";
-import { Box } from "native-base";
-import { themeModeColorsBAW } from "_constants/theme";
-import ScreenWrapper from "screens/ScreenWrapper";
-import Title from "components/theme/atoms/text/Title";
-import InputUnderline from "components/Form/inputs/InputUnderline";
-import ContinueButton from "components/Form/buttons/ContinueButton";
-import KeyboardAvoidingView from "components/KeyboardAvoidingView";
-import { KeyboardVerticalOffset } from "_constants/header";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import Text from "../atoms/text/Text";
-import { FormInputProps } from "types/form";
-import DocumentUploader from "components/Form/DocumentUploader";
-import PrimaryButton from "components/Form/buttons/PrimaryButton";
-import { GenericVoidFunc } from "types/global";
+import React from 'react'
+import { Box } from 'native-base'
+import { themeModeColorsBAW } from '_constants/theme'
+import ScreenWrapper from 'screens/ScreenWrapper'
+import Title from 'components/theme/atoms/text/Title'
+import InputUnderline from 'components/Form/inputs/InputUnderline'
+import ContinueButton from 'components/Form/buttons/ContinueButton'
+import KeyboardAvoidingView from 'components/KeyboardAvoidingView'
+import { KeyboardVerticalOffset } from '_constants/header'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import Text from '../atoms/text/Text'
+import { FormInputProps } from 'types/form'
+import DocumentUploader from 'components/Form/DocumentUploader'
+import PrimaryButton from 'components/Form/buttons/PrimaryButton'
+import { GenericVoidFunc } from 'types/global'
 
 type Props = {
-  titleText: string;
-  subText?: string;
-  ctaText?: string;
-  error?: string | undefined;
-  buttonText?: string;
-  onUpload?: GenericVoidFunc;
-} & FormInputProps;
+  titleText: string
+  subText?: string
+  ctaText?: string
+  error?: string | undefined
+  buttonText?: string
+  onUpload?: GenericVoidFunc
+} & FormInputProps
 
-export default function ({
+export default function DocumentUploadScreen({
   titleText,
   subText,
   fieldName,
@@ -58,5 +58,5 @@ export default function ({
         </Box>
       </Box>
     </ScreenWrapper>
-  );
+  )
 }

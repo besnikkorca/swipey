@@ -1,12 +1,12 @@
-import React from "react";
-import TabsNavigator from "../BottomTabsNavigator/BottomTabsNavigator";
-import DrawerContent from "./DrawerContent";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import Header from "navigation/Header";
+import React from 'react'
+import TabsNavigator from '../BottomTabsNavigator/BottomTabsNavigator'
+import DrawerContent from './DrawerContent'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import Header from 'navigation/Header'
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator()
 
-export default function () {
+export default function AppDrawer() {
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -16,5 +16,5 @@ export default function () {
     >
       <Drawer.Screen name="App" component={TabsNavigator} />
     </Drawer.Navigator>
-  );
+  )
 }

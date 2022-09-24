@@ -1,18 +1,16 @@
-import Text from "components/theme/atoms/text/Text";
-import { Box, HStack, Icon, IconButton, StatusBar } from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Platform } from "react-native";
-import { HeaderHeight } from "_constants/header";
-import BrandIcon from "components/theme/atoms/icons/BrandIcon";
-import { themeModeColorsBAW } from "_constants/theme";
+import { Box, HStack, Icon, IconButton } from 'native-base'
+import { MaterialIcons } from '@expo/vector-icons'
+import { HeaderHeight } from '_constants/header'
+import BrandIcon from 'components/theme/atoms/icons/BrandIcon'
+import { themeModeColorsBAW } from '_constants/theme'
 
 type Props = {
   // TODO: fix type of drawer navigation
-  navigation: any;
-};
+  navigation: any
+}
 
-export default function ({ navigation }: Props): JSX.Element {
-  const handleToggleDrawer = () => navigation.openDrawer();
+export default function Header({ navigation }: Props): JSX.Element {
+  const handleToggleDrawer = () => navigation.openDrawer()
   return (
     <>
       <Box safeAreaTop {...themeModeColorsBAW} />
@@ -42,5 +40,5 @@ export default function ({ navigation }: Props): JSX.Element {
         <Box w="50" />
       </HStack>
     </>
-  );
+  )
 }

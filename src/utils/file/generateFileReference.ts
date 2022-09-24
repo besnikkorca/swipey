@@ -1,12 +1,12 @@
-import { CloudDirs } from "types/global";
-import fileNameFromFilePath from "./fileNameFromFilePath";
+import { CloudDirs } from 'types/global'
+import fileNameFromFilePath from './fileNameFromFilePath'
 
-export default function (
+export default function generateFileReference(
   cloudDir: CloudDirs,
   userUid: string | undefined,
   filePath: string
 ) {
-  if (!userUid) throw Error("No user uid provided");
+  if (!userUid) throw Error('No user uid provided')
 
-  return `${cloudDir}/${userUid}/${fileNameFromFilePath(filePath)}`;
+  return `${cloudDir}/${userUid}/${fileNameFromFilePath(filePath)}`
 }

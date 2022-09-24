@@ -1,15 +1,13 @@
-import Icon from 'components/theme/atoms/Icon'
 import Text from 'components/theme/atoms/text/Text'
 import Title from 'components/theme/atoms/text/Title'
 import { Divider, HStack, View } from 'native-base'
-import { useState } from 'react'
 import { Job } from 'types/Job'
 
 type Props = {
   job: Job
 }
 
-export default function ({ job }: Props) {
+export default function JobDetails({ job }: Props) {
   const initialText = job.description.split('\n')
 
   return (
@@ -24,7 +22,7 @@ export default function ({ job }: Props) {
           {job.startDate} - {job.endDate}
         </Text>
       </HStack>
-      {initialText.map((line, idx) => (
+      {initialText.map((line) => (
         <Text key={line} textAlign="left">
           {line}
         </Text>

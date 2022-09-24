@@ -1,26 +1,26 @@
-import { KeyboardAvoidingView } from "native-base";
-import { InterfaceKeyboardAvoidingViewProps } from "native-base/lib/typescript/components/basic/KeyboardAvoidingView/types";
-import { Platform } from "react-native";
+import { KeyboardAvoidingView as NBKeyboardAvoidingView } from 'native-base'
+import { InterfaceKeyboardAvoidingViewProps } from 'native-base/lib/typescript/components/basic/KeyboardAvoidingView/types'
+import { Platform } from 'react-native'
 
-import { themeModeColors } from "_constants/theme";
+import { themeModeColors } from '_constants/theme'
 
 type Props = {
-  children?: React.ReactChild | React.ReactChild[];
-} & InterfaceKeyboardAvoidingViewProps;
+  children?: React.ReactChild | React.ReactChild[]
+} & InterfaceKeyboardAvoidingViewProps
 
-export default function ({ children, ...props }: Props) {
+export default function KeyboardAvoidingView({ children, ...props }: Props) {
   return (
-    <KeyboardAvoidingView
+    <NBKeyboardAvoidingView
       {...themeModeColors}
       flex={1}
       h={{
-        base: "400px",
-        lg: "auto",
+        base: '400px',
+        lg: 'auto',
       }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       {...props}
     >
       {children}
-    </KeyboardAvoidingView>
-  );
+    </NBKeyboardAvoidingView>
+  )
 }

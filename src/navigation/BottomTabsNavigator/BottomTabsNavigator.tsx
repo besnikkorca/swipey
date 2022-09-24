@@ -1,12 +1,12 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import SwipeCompaniesScreen from "screens/SwipeCompaniesScreen";
-import LikedByCompaniesScreen from "screens/LikedByCompaniesScreen";
-import MatchedCompaniesScreen from "screens/MatchedCompaniesScreen";
-import { TabsScreens } from "navigation/types";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import SwipeCompaniesScreen from 'screens/SwipeCompaniesScreen'
+import LikedByCompaniesScreen from 'screens/LikedByCompaniesScreen'
+import MatchedCompaniesScreen from 'screens/MatchedCompaniesScreen'
+import { TabsScreens } from 'navigation/types'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
-export default function () {
+export default function BottomTabsNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -26,5 +26,5 @@ export default function () {
         component={MatchedCompaniesScreen}
       ></Tab.Screen>
     </Tab.Navigator>
-  );
+  )
 }

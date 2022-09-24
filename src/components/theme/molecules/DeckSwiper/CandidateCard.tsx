@@ -5,18 +5,19 @@ import ImagesProgressLines from './ImagesProgressLines'
 import { ImageDetails } from './ImageDetails'
 import JobDetails from './JobDetails'
 import { UserWithDetails } from 'types/user'
+import { GenericVoidFunc } from 'types/global'
 
 type Props = {
   user: UserWithDetails
-  handleGoBack: () => void
-  handleDislike: () => void
-  handleStar: () => void
-  handleLike: () => void
+  handleGoBack: GenericVoidFunc
+  handleDislike: GenericVoidFunc
+  handleStar: GenericVoidFunc
+  handleLike: GenericVoidFunc
 }
 
 const USER_DETAILS_IDX = 0
 
-export default function ({
+export default function CandidateCard({
   user,
   handleGoBack,
   handleDislike,

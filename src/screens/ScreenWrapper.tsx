@@ -1,14 +1,14 @@
-import { Box, KeyboardAvoidingView } from "native-base";
-import { themeModeColors } from "_constants/theme";
+import { Box, KeyboardAvoidingView } from 'native-base'
+import { themeModeColors } from '_constants/theme'
 
 interface Props {
-  themeColors?: any;
-  children?: React.ReactChild | React.ReactChild[];
-  safeArea?: boolean;
-  safeAreaBottom?: boolean;
+  themeColors?: any
+  children?: React.ReactChild | React.ReactChild[]
+  safeArea?: boolean
+  safeAreaBottom?: boolean
 }
 
-export default function ({
+export default function ScreenWrapper({
   children,
   themeColors = themeModeColors,
   safeArea = true,
@@ -25,5 +25,5 @@ export default function ({
         <Box flex={1}>{children}</Box>
       </KeyboardAvoidingView>
     </Box>
-  );
+  )
 }

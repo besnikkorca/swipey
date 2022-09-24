@@ -1,22 +1,22 @@
-import React from "react";
-import { Text } from "native-base";
-import { InterfaceTextProps } from "native-base/lib/typescript/components/primitives/Text/types";
+import React from 'react'
+import { Text as NBText } from 'native-base'
+import { InterfaceTextProps } from 'native-base/lib/typescript/components/primitives/Text/types'
 
-export default function ({
+export default function Text({
   children,
-  color = "white",
-  textAlign = "center",
-  fontWeight = "medium",
+  color = 'white',
+  textAlign = 'center',
+  fontWeight = 'medium',
   ...props
 }: InterfaceTextProps): JSX.Element {
   return (
-    <Text
+    <NBText
       {...props}
       color={color}
       textAlign={textAlign}
       fontWeight={fontWeight}
     >
       {children}
-    </Text>
-  );
+    </NBText>
+  )
 }

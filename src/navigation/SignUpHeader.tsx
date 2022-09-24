@@ -1,13 +1,12 @@
-import Text from "components/theme/atoms/text/Text";
-import { Box, HStack, Icon, IconButton, StatusBar } from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Platform } from "react-native";
-import useNavigation from "hooks/useNavigation";
-import { HeaderHeight } from "_constants/header";
+import { Box, HStack, Icon, IconButton } from 'native-base'
+import { MaterialIcons } from '@expo/vector-icons'
+import { Platform } from 'react-native'
+import useNavigation from 'hooks/useNavigation'
+import { HeaderHeight } from '_constants/header'
 
-export default function (): JSX.Element {
-  const navigation = useNavigation();
-  const handlePressBack = () => navigation.goBack();
+export default function SignUpHeader(): JSX.Element {
+  const navigation = useNavigation()
+  const handlePressBack = () => navigation.goBack()
   return (
     <>
       <Box safeAreaTop />
@@ -25,12 +24,12 @@ export default function (): JSX.Element {
               size="xl"
               fontWeight={700}
               as={MaterialIcons}
-              name={Platform.OS === "ios" ? "arrow-back-ios" : "arrow-back"}
+              name={Platform.OS === 'ios' ? 'arrow-back-ios' : 'arrow-back'}
               color="gray.600"
             />
           }
         />
       </HStack>
     </>
-  );
+  )
 }

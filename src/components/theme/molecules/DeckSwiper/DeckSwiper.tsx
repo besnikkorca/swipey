@@ -1,13 +1,10 @@
 import { View } from 'native-base'
 import Swiper from 'react-native-deck-swiper'
-import FileManager from 'services/FileManager'
-import { CloudDirs } from 'types/global'
-import { themeModeColors } from '_constants/theme'
 import CandidateCard from './CandidateCard'
 import users from './userTestData'
 // import Text from "./theme/atoms/text/Text";
 
-export default function () {
+export default function DeckSwiper() {
   // const images = Array.from(new Array(5)).map((_, idx) =>
   //   FileManager.getFileDownloadUrl(`${CloudDirs.images}/nature${idx + 1}.jpeg`)
   // );

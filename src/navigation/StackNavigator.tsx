@@ -1,40 +1,38 @@
-import { useContext } from "react";
+import { useContext } from 'react'
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
-} from "@react-navigation/native-stack";
-import { AuthScreens, AppScreens, SignUpScreens } from "./types";
+} from '@react-navigation/native-stack'
+import { AuthScreens, AppScreens, SignUpScreens } from './types'
 
-import HomeScreen from "screens/HomeScreen";
-import AboutScreen from "screens/AboutScreen";
-import InitialScreen from "screens/InitialScreen";
-import LoginScreen from "screens/LoginScreen";
-import SignUpEmailScreen from "screens/signup/SignUpEmailScreen";
-import SignUpFirstNameScreen from "screens/signup/SignUpFirstNameScreen";
-import SignUpLastNameScreen from "screens/signup/SignUpLastNameScreen";
-import SignUpCVScreen from "screens/signup/SignUpCVScreen";
-import SignUpPasswordScreen from "screens/signup/SignUpPasswordScreen";
-import SignUpPerformScreen from "screens/signup/SignUpPerformScreen";
-import SignUpRecruiterScreen from "screens/signup/SignUpRecruiterScreen";
-import RulesScreen from "screens/signup/RulesScreen";
-import UserContext from "contexts/UserContext";
-import SignUpHeader from "navigation/SignUpHeader";
-import Header from "navigation/Header";
+import HomeScreen from 'screens/HomeScreen'
+import AboutScreen from 'screens/AboutScreen'
+import InitialScreen from 'screens/InitialScreen'
+import LoginScreen from 'screens/LoginScreen'
+import SignUpEmailScreen from 'screens/signup/SignUpEmailScreen'
+import SignUpFirstNameScreen from 'screens/signup/SignUpFirstNameScreen'
+import SignUpLastNameScreen from 'screens/signup/SignUpLastNameScreen'
+import SignUpCVScreen from 'screens/signup/SignUpCVScreen'
+import SignUpPasswordScreen from 'screens/signup/SignUpPasswordScreen'
+import SignUpPerformScreen from 'screens/signup/SignUpPerformScreen'
+import SignUpRecruiterScreen from 'screens/signup/SignUpRecruiterScreen'
+import RulesScreen from 'screens/signup/RulesScreen'
+import UserContext from 'contexts/UserContext'
+import SignUpHeader from 'navigation/SignUpHeader'
+import Header from 'navigation/Header'
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 const options: NativeStackNavigationOptions = {
   headerShown: false,
-};
+}
 
-type Props = {};
-
-export default function ({}: Props) {
-  const { user } = useContext(UserContext);
+export default function StackNavigator() {
+  const { user } = useContext(UserContext)
   return (
     <Stack.Navigator>
       <Stack.Group screenOptions={options}>
-        {!!user ? (
+        {user ? (
           <Stack.Group
             screenOptions={
               {
@@ -63,7 +61,7 @@ export default function ({}: Props) {
               <Stack.Screen
                 options={{
                   headerShown: true,
-                  animation: "slide_from_bottom",
+                  animation: 'slide_from_bottom',
                   header: Header,
                 }}
                 name={SignUpScreens.signUpEmail}
@@ -98,5 +96,5 @@ export default function ({}: Props) {
         )}
       </Stack.Group>
     </Stack.Navigator>
-  );
+  )
 }

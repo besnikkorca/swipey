@@ -1,17 +1,20 @@
-import React from "react";
-import ImagePicker from "./ImagePicker";
-import { CloudDirs } from "types/global";
+import React from 'react'
+import ImagePicker from './ImagePicker'
+import { CloudDirs } from 'types/global'
 
-import { SharedProps } from "./types";
-import useUploadFile from "hooks/files/useUploadFile";
+import { SharedProps } from './types'
+import useUploadFile from 'hooks/files/useUploadFile'
 
 type Props = {
-  cloudDir?: CloudDirs;
-} & SharedProps;
+  cloudDir?: CloudDirs
+} & SharedProps
 
-export default function ({ cloudDir = CloudDirs.images, text }: Props) {
+export default function ImageUploader({
+  cloudDir = CloudDirs.images,
+  text,
+}: Props) {
   const { handleFileUpload, isLoading, loadPercentage } =
-    useUploadFile(cloudDir);
+    useUploadFile(cloudDir)
 
   return (
     <ImagePicker
@@ -20,5 +23,5 @@ export default function ({ cloudDir = CloudDirs.images, text }: Props) {
       loadPercentage={loadPercentage}
       text={text}
     />
-  );
+  )
 }

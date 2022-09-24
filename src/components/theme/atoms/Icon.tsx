@@ -1,21 +1,21 @@
-import { Icon, IIconProps } from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Icon as NBIcon, IIconProps } from 'native-base'
+import { MaterialIcons } from '@expo/vector-icons'
 
-type Props = IIconProps;
+type Props = IIconProps
 
-export default function ({
-  size = "xl",
+export default function Icon({
+  size = 'xl',
   fontWeight = 700,
-  color = "gray.600",
+  color = 'gray.600',
   ...props
 }: Props) {
   return (
-    <Icon
+    <NBIcon
       as={MaterialIcons}
       size={size}
       fontWeight={fontWeight}
       color={color}
       {...props}
     />
-  );
+  )
 }

@@ -1,9 +1,13 @@
-import { Icon, IconButton, IIconButtonProps } from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Icon, IconButton, IIconButtonProps } from 'native-base'
+import { MaterialIcons } from '@expo/vector-icons'
 
-type Props = { iconName: string } & IIconButtonProps;
+type Props = { iconName: string } & IIconButtonProps
 
-export default function ({ color = "white", iconName, ...props }: Props) {
+export default function RoundButton({
+  color = 'white',
+  iconName,
+  ...props
+}: Props) {
   return (
     <IconButton
       {...props}
@@ -16,5 +20,5 @@ export default function ({ color = "white", iconName, ...props }: Props) {
         <Icon size="4xl" as={MaterialIcons} name={iconName} color={color} />
       }
     />
-  );
+  )
 }

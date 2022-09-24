@@ -16,7 +16,7 @@ type Props = {
   showUserDetails: boolean
   showTutorial: boolean
   user: UserWithDetails
-  buttons: { iconName: string; onPress: () => void; color: string }[]
+  buttons: { iconName: string; onPress: GenericVoidFunc; color: string }[]
   handlePressLeft: GenericVoidFunc
   handlePressRight: GenericVoidFunc
   handlePressInfo: GenericVoidFunc

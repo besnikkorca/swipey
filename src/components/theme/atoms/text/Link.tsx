@@ -1,17 +1,17 @@
-import { Link } from "native-base";
-import { InterfaceLinkProps } from "native-base/lib/typescript/components/primitives/Link/types";
+import { Link as NBLink } from 'native-base'
+import { InterfaceLinkProps } from 'native-base/lib/typescript/components/primitives/Link/types'
 
-export default function ({ children, href, ...props }: InterfaceLinkProps) {
+export default function Link({ children, href, ...props }: InterfaceLinkProps) {
   return (
-    <Link
+    <NBLink
       _text={{
-        color: "white",
-        fontWeight: "semibold",
+        color: 'white',
+        fontWeight: 'semibold',
       }}
-      onPress={() => alert("would have opened site " + href)}
+      onPress={() => alert('would have opened site ' + href)}
       {...props}
     >
       {children}
-    </Link>
-  );
+    </NBLink>
+  )
 }

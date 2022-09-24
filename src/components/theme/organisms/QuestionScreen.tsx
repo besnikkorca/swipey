@@ -1,34 +1,35 @@
-import React from "react";
-import { Box } from "native-base";
-import { themeModeColorsBAW } from "_constants/theme";
-import ScreenWrapper from "screens/ScreenWrapper";
-import Title from "components/theme/atoms/text/Title";
-import InputUnderline from "components/Form/inputs/InputUnderline";
-import ContinueButton from "components/Form/buttons/ContinueButton";
-import KeyboardAvoidingView from "components/KeyboardAvoidingView";
-import { KeyboardVerticalOffset } from "_constants/header";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import Text from "../atoms/text/Text";
-import { FormInputProps } from "types/form";
+import React from 'react'
+import { Box } from 'native-base'
+import { themeModeColorsBAW } from '_constants/theme'
+import ScreenWrapper from 'screens/ScreenWrapper'
+import Title from 'components/theme/atoms/text/Title'
+import InputUnderline from 'components/Form/inputs/InputUnderline'
+import ContinueButton from 'components/Form/buttons/ContinueButton'
+import KeyboardAvoidingView from 'components/KeyboardAvoidingView'
+import { KeyboardVerticalOffset } from '_constants/header'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import Text from '../atoms/text/Text'
+import { FormInputProps } from 'types/form'
+import { GenericVoidFunc } from 'types/global'
 
 type Props = {
-  titleText: string;
-  subText?: string;
-  ctaText?: string;
-  placeholder: string;
-  error?: string | undefined;
-  onPress: () => void;
+  titleText: string
+  subText?: string
+  ctaText?: string
+  placeholder: string
+  error?: string | undefined
+  onPress: GenericVoidFunc
   // TODO: Fix types
-  autoCompleteType?: any;
-  autoCorrect?: any;
-  type?: "text" | "password";
-  isValid: boolean;
-} & FormInputProps;
+  autoCompleteType?: any
+  autoCorrect?: any
+  type?: 'text' | 'password'
+  isValid: boolean
+} & FormInputProps
 
-export default function ({
+export default function QuestionScreen({
   titleText,
   subText,
-  ctaText = "continue",
+  ctaText = 'continue',
   placeholder,
   fieldName,
   control,
@@ -40,7 +41,7 @@ export default function ({
   type,
   isValid,
 }: Props) {
-  const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets()
 
   return (
     <ScreenWrapper
@@ -81,5 +82,5 @@ export default function ({
         </KeyboardAvoidingView>
       </Box>
     </ScreenWrapper>
-  );
+  )
 }

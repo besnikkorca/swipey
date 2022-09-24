@@ -1,19 +1,19 @@
-import React from "react";
-import { Progress } from "native-base";
-import { ColorSchemeType } from "native-base/lib/typescript/components/types";
+import React from 'react'
+import { Progress as NBProgress } from 'native-base'
+import { ColorSchemeType } from 'native-base/lib/typescript/components/types'
 
 type Props = {
-  colorScheme?: ColorSchemeType;
-  loadPercentage?: number;
-  isVisible?: boolean;
-};
+  colorScheme?: ColorSchemeType
+  loadPercentage?: number
+  isVisible?: boolean
+}
 
-export default function ({
+export default function Progress({
   loadPercentage = 0,
-  colorScheme = "emerald",
+  colorScheme = 'emerald',
   isVisible = true,
 }: Props): JSX.Element | null {
-  if (!isVisible) return null;
+  if (!isVisible) return null
 
-  return <Progress my="2" colorScheme={colorScheme} value={loadPercentage} />;
+  return <NBProgress my="2" colorScheme={colorScheme} value={loadPercentage} />
 }

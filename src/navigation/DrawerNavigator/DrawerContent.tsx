@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
-} from "@react-navigation/drawer";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+} from '@react-navigation/drawer'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import {
   Box,
   Divider,
@@ -12,16 +12,16 @@ import {
   Pressable,
   Text,
   VStack,
-} from "native-base";
-import SessionManager from "services/SessionManager";
-import ToggleDarkMode from "components/theme/ToggleDarkMode";
+} from 'native-base'
+import SessionManager from 'services/SessionManager'
+import ToggleDarkMode from 'components/theme/ToggleDarkMode'
 
-export default function (props: DrawerContentComponentProps) {
+export default function DrawerContent(props: DrawerContentComponentProps) {
   return (
     <DrawerContentScrollView {...props}>
       <VStack
-        _dark={{ bg: "blueGray.900" }}
-        _light={{ bg: "blueGray.50" }}
+        _dark={{ bg: 'blueGray.900' }}
+        _light={{ bg: 'blueGray.50' }}
         space="6"
         my="2"
         mx="1"
@@ -57,5 +57,5 @@ export default function (props: DrawerContentComponentProps) {
         </VStack>
       </VStack>
     </DrawerContentScrollView>
-  );
+  )
 }

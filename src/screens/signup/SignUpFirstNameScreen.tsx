@@ -1,28 +1,27 @@
-import React from "react";
-import { SignUpScreens } from "navigation/types";
-import QuestionScreen from "components/theme/organisms/QuestionScreen";
-import useSignUpData from "hooks/useSignUpData";
-import useFirstNameForm from "hooks/forms/useFirstNameForm";
-import { ValidationRules } from "types/form";
+import React from 'react'
+import { SignUpScreens } from 'navigation/types'
+import QuestionScreen from 'components/theme/organisms/QuestionScreen'
+import useSignUpData from 'hooks/useSignUpData'
+import useFirstNameForm from 'hooks/forms/useFirstNameForm'
+import { ValidationRules } from 'types/form'
 
 const rules: ValidationRules = {
   maxLength: {
     value: 35,
-    message: "First name cannot contain more than 35 characters",
+    message: 'First name cannot contain more than 35 characters',
   },
   minLength: {
     value: 2,
-    message: "First name must have at least 2 characters",
+    message: 'First name must have at least 2 characters',
   },
-  required: "First name is required",
-};
+  required: 'First name is required',
+}
 
-export default function () {
-  const { handleUpdate } = useSignUpData(SignUpScreens.signUpLastName);
+export default function SignUpFirstNameScreen() {
+  const { handleUpdate } = useSignUpData(SignUpScreens.signUpLastName)
 
-  const { control, handleSubmit, formState } = useFirstNameForm();
-  const error = (formState.errors?.firstName?.message || "") as string;
-  console.log("formState.errors !!!!!! ", formState.errors);
+  const { control, handleSubmit, formState } = useFirstNameForm()
+  const error = (formState.errors?.firstName?.message || '') as string
 
   return (
     <QuestionScreen
@@ -35,5 +34,5 @@ export default function () {
       titleText="My first name is"
       placeholder="First Name"
     />
-  );
+  )
 }

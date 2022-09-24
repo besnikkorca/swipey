@@ -1,36 +1,37 @@
-import React, { ReactChild } from "react";
-import { extendTheme, NativeBaseProvider } from "native-base";
-import { LinearGradient } from "expo-linear-gradient";
+import React, { ReactChild } from 'react'
+import { extendTheme, NativeBaseProvider } from 'native-base'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const theme = extendTheme({
   config: {
     useSystemColorMode: false,
-    initialColorMode: "light",
+    initialColorMode: 'light',
     dependencies: {
-      "linear-gradient": LinearGradient,
+      'linear-gradient': LinearGradient,
     },
   },
-});
+})
 
 const config = {
   dependencies: {
-    "linear-gradient": LinearGradient,
+    'linear-gradient': LinearGradient,
   },
-};
+}
 
-type MyThemeType = typeof theme;
-declare module "native-base" {
+type MyThemeType = typeof theme
+declare module 'native-base' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface ICustomTheme extends MyThemeType {}
 }
 
 type Props = {
-  children: ReactChild;
-};
+  children: ReactChild
+}
 
 export default function StylingProvider({ children }: Props) {
   return (
     <NativeBaseProvider config={config} theme={theme}>
       {children}
     </NativeBaseProvider>
-  );
+  )
 }

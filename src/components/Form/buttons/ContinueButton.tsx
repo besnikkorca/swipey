@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, IButtonProps } from "native-base";
+import React from 'react'
+import { Button, IButtonProps } from 'native-base'
 
-export default function ({
+export default function ContinueButton({
   onPress,
   children,
   variant,
@@ -9,9 +9,9 @@ export default function ({
   my = 2,
   py = 3,
   shadow = 2,
-  fontWeight = "semibold",
-  fontSize = "2xl",
-  bgColor = "white",
+  fontWeight = 'semibold',
+  fontSize = '2xl',
+  bgColor = 'white',
   isValid = false,
   ...props
 }: IButtonProps): JSX.Element {
@@ -26,17 +26,17 @@ export default function ({
       fontWeight={fontWeight}
       fontSize={fontSize}
       borderRadius={50}
-      bgColor={isValid ? "yellow.300" : bgColor}
+      bgColor={isValid ? 'yellow.300' : bgColor}
       _text={{
-        color: isValid ? "white" : "gray.500",
+        color: isValid ? 'white' : 'gray.500',
         shadow: 2,
-        textTransform: "uppercase",
-        fontWeight: "semibold",
+        textTransform: 'uppercase',
+        fontWeight: 'semibold',
         // fontSize: "md",
       }}
       {...props}
     >
       {children}
     </Button>
-  );
+  )
 }

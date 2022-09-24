@@ -1,24 +1,24 @@
-import React from "react";
-import { Box } from "native-base";
-import { themeModeColorsBAW } from "_constants/theme";
-import ScreenWrapper from "../ScreenWrapper";
-import Title from "components/theme/atoms/text/Title";
-import Subtitle from "components/theme/atoms/text/Subtitle";
-import ContinueButton from "components/Form/buttons/ContinueButton";
-import KeyboardAvoidingView from "components/KeyboardAvoidingView";
-import { KeyboardVerticalOffset } from "_constants/header";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import BrandIconSimpleSmall from "components/theme/atoms/icons/BrandIconSimpleSmall";
-import TextArticle from "components/theme/molecules/TextArticle";
-import useNavigation from "hooks/useNavigation";
-import { SignUpScreens } from "navigation/types";
+import React from 'react'
+import { Box } from 'native-base'
+import { themeModeColorsBAW } from '_constants/theme'
+import ScreenWrapper from '../ScreenWrapper'
+import Title from 'components/theme/atoms/text/Title'
+import Subtitle from 'components/theme/atoms/text/Subtitle'
+import ContinueButton from 'components/Form/buttons/ContinueButton'
+import KeyboardAvoidingView from 'components/KeyboardAvoidingView'
+import { KeyboardVerticalOffset } from '_constants/header'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import BrandIconSimpleSmall from 'components/theme/atoms/icons/BrandIconSimpleSmall'
+import TextArticle from 'components/theme/molecules/TextArticle'
+import useNavigation from 'hooks/useNavigation'
+import { SignUpScreens } from 'navigation/types'
 
-export default function () {
-  const insets = useSafeAreaInsets();
-  const navigation = useNavigation();
+export default function RulesScreen() {
+  const insets = useSafeAreaInsets()
+  const navigation = useNavigation()
 
   const handleOnContinue = () =>
-    navigation.navigate(SignUpScreens.signUpFirstName);
+    navigation.navigate(SignUpScreens.signUpFirstName)
   return (
     <ScreenWrapper
       safeArea={true}
@@ -62,5 +62,5 @@ export default function () {
         </KeyboardAvoidingView>
       </Box>
     </ScreenWrapper>
-  );
+  )
 }

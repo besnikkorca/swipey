@@ -1,13 +1,13 @@
-import React from "react";
-import { Button, IButtonProps } from "native-base";
+import React from 'react'
+import { Button as NBButton, IButtonProps } from 'native-base'
 
-export default function ({
+export default function Button({
   onPress,
   children,
   variant,
 }: IButtonProps): JSX.Element {
   return (
-    <Button
+    <NBButton
       textTransform="uppercase"
       onPress={onPress}
       variant={variant}
@@ -16,6 +16,6 @@ export default function ({
       borderRadius={50}
     >
       {children}
-    </Button>
-  );
+    </NBButton>
+  )
 }

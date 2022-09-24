@@ -1,29 +1,27 @@
-import * as DocumentPicker from "expo-document-picker";
-import { Box } from "native-base";
+import * as EDocumentPicker from 'expo-document-picker'
 
-import Progress from "components/loading/Progress";
-import PrimaryButton from "./buttons/PrimaryButton";
-import SecondaryButton from "./buttons/SecondaryButton";
+import Progress from 'components/loading/Progress'
+import PrimaryButton from './buttons/PrimaryButton'
 
 interface Props {
-  text?: string;
-  onPick?: (documentPath: string) => void;
-  isLoading?: boolean;
-  loadPercentage?: number;
+  text?: string
+  onPick?: (documentPath: string) => void
+  isLoading?: boolean
+  loadPercentage?: number
 }
 
-export default function ({
+export default function DocumentPicker({
   loadPercentage = 0,
   isLoading = false,
-  text = "Pick document",
+  text = 'Pick document',
   onPick,
 }: Props) {
   const handlePickDocument = async () => {
-    const res = await DocumentPicker.getDocumentAsync();
-    if (res.type === "success") {
-      if (onPick) onPick(res.uri);
+    const res = await EDocumentPicker.getDocumentAsync()
+    if (res.type === 'success') {
+      if (onPick) onPick(res.uri)
     }
-  };
+  }
 
   return (
     <>
@@ -39,5 +37,5 @@ export default function ({
         loadPercentage={loadPercentage}
       />
     </>
-  );
+  )
 }

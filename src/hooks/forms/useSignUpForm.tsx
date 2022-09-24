@@ -1,24 +1,17 @@
-import { useForm, UseFormProps } from "react-hook-form";
+import { useForm, UseFormProps } from 'react-hook-form'
 
 const defaultValues = {
-  email: "",
-  firstName: "",
-  lastName: "",
-};
+  email: '',
+  firstName: '',
+  lastName: '',
+}
 
 const formConfig: UseFormProps = {
   defaultValues,
-  mode: "onChange",
-  reValidateMode: "onBlur",
-};
+  mode: 'onChange',
+  reValidateMode: 'onBlur',
+}
 
-export default function () {
-  const formData = useForm(formConfig);
-
-  const onSubmit = (data: any) => {
-    console.log("data - ", data);
-    alert("submitting data");
-  };
-
-  return formData;
+export default function useSignUpForm() {
+  return useForm(formConfig)
 }

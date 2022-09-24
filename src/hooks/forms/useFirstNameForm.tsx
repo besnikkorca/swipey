@@ -1,15 +1,15 @@
-import { useForm, UseFormProps } from "react-hook-form";
+import { useForm, UseFormProps } from 'react-hook-form'
 
 const defaultValues = {
-  firstName: "",
-};
+  firstName: '',
+}
 
 const formConfig: UseFormProps = {
   defaultValues,
-  mode: "onChange",
-  reValidateMode: "onBlur",
-};
+  mode: 'onChange',
+  reValidateMode: 'onBlur',
+}
 
-export default function () {
-  return useForm(formConfig);
+export default function useFirstNameForm() {
+  return useForm(formConfig)
 }

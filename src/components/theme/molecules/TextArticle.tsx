@@ -1,14 +1,14 @@
-import Text from "components/theme/atoms/text/Text";
-import Title from "components/theme/atoms/text/Title";
-import Icon from "components/theme/atoms/Icon";
-import { Box } from "native-base";
+import Text from 'components/theme/atoms/text/Text'
+import Title from 'components/theme/atoms/text/Title'
+import Icon from 'components/theme/atoms/Icon'
+import { Box } from 'native-base'
 
 interface Props {
-  title: string;
-  content: string;
+  title: string
+  content: string
 }
 
-export default function ({ title, content }: Props) {
+export default function TextArticle({ title, content }: Props) {
   return (
     <Box my="5">
       <Box flexDirection="row" alignItems="center" mb="2">
@@ -21,5 +21,5 @@ export default function ({ title, content }: Props) {
         {content}
       </Text>
     </Box>
-  );
+  )
 }

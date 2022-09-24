@@ -1,7 +1,7 @@
-import React from "react";
-import Svg, { Defs, Path, G, Mask, Use } from "react-native-svg";
+import React from 'react'
+import Svg, { Defs, Path, G, Mask, Use } from 'react-native-svg'
 
-export default function (props: any) {
+export default function BrandIconSimple(props: any) {
   return (
     <Svg
       width="100%"
@@ -38,5 +38,5 @@ export default function (props: any) {
         />
       </G>
     </Svg>
-  );
+  )
 }

@@ -4,6 +4,7 @@ import QuestionScreen from 'components/theme/organisms/QuestionScreen'
 import useSignUpData from 'hooks/useSignUpData'
 import useLastNameForm from 'hooks/forms/useLastNameForm'
 import { ValidationRules } from 'types/form'
+import useRoute from 'hooks/useRoute'
 
 const rules: ValidationRules = {
   maxLength: {
@@ -18,7 +19,12 @@ const rules: ValidationRules = {
 }
 
 export default function SignUpLastNameScreen() {
-  const { handleUpdate } = useSignUpData(SignUpScreens.signUpCV)
+  const {
+    params: { isRecruiter },
+  } = useRoute()
+  const { handleUpdate } = useSignUpData(
+    isRecruiter ? SignUpScreens.signUpCompanyName : SignUpScreens.signUpCV
+  )
 
   const { control, handleSubmit, formState } = useLastNameForm()
   const error = (formState.errors?.lastName?.message || '') as string

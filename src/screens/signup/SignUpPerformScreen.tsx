@@ -11,8 +11,13 @@ import DBManager from 'services/DBManager'
 import { Collections } from 'types/database'
 import { signUpInitialValues } from '_constants/signUp'
 import Lottie from 'lottie-react-native'
+import useRoute from 'hooks/useRoute'
 
 export default function SignUpPerformScreen() {
+  const {
+    params: { isRecruiter = false },
+  } = useRoute()
+
   const [isLoading, setIsLoading] = useState(false)
   const [isLoadingAnimationDone, setIsLoadingAnimationDone] = useState(false)
   const { handleUpdate } = useSignUpData()
@@ -22,7 +27,6 @@ export default function SignUpPerformScreen() {
   useEffect(() => {
     const signUpUser = async () => {
       setIsLoading(true)
-      // create user
       const { user } = await SessionManager.signUp(data.email, data.password)
 
       await user.updateProfile({
@@ -34,6 +38,7 @@ export default function SignUpPerformScreen() {
         firstName: data.firstName,
         lastName: data.lastName,
         cvPath: data.cvPath,
+        isRecruiter,
       })
       setIsLoading(false)
       setTimeout(() => {

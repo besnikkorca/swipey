@@ -26,7 +26,7 @@ export default function InitialScreen() {
   const handleSignUpUser = () => navigation.navigate(SignUpScreens.signUpEmail)
 
   const handleSignUpRecruiter = () =>
-    navigation.navigate(SignUpScreens.signUpRecruiter)
+    navigation.navigate(SignUpScreens.signUpEmail, { isRecruiter: true })
   return (
     <ScreenWrapper>
       <Box flex={1} px="5">
@@ -79,9 +79,7 @@ export default function InitialScreen() {
                   Cookies Policy
                 </Link>
               </Text>
-              <PrimaryButton onPress={handleShowRoles}>
-                Create account
-              </PrimaryButton>
+              <PrimaryButton onPress={handleShowRoles}>Sign up</PrimaryButton>
               <SecondaryButton onPress={handleSignIn}>Sign in</SecondaryButton>
               <LinkButton variant="link" onPress={handleTroubleSigningIn}>
                 Trouble Signing in?

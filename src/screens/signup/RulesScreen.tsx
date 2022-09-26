@@ -12,13 +12,18 @@ import BrandIconSimpleSmall from 'components/theme/atoms/icons/BrandIconSimpleSm
 import TextArticle from 'components/theme/molecules/TextArticle'
 import useNavigation from 'hooks/useNavigation'
 import { SignUpScreens } from 'navigation/types'
+import useTextArticles from './hooks/useTextArticles'
+import useRoute from 'hooks/useRoute'
 
 export default function RulesScreen() {
   const insets = useSafeAreaInsets()
   const navigation = useNavigation()
+  const { params } = useRoute()
 
   const handleOnContinue = () =>
-    navigation.navigate(SignUpScreens.signUpFirstName)
+    navigation.navigate(SignUpScreens.signUpFirstName, params)
+
+  const textArticles = useTextArticles()
   return (
     <ScreenWrapper
       safeArea={true}
@@ -36,18 +41,9 @@ export default function RulesScreen() {
               Please behave nice, besides feeling better for yourself you'll
               have a better chance at getting what you want.
             </Subtitle>
-            <TextArticle
-              title="Veritas"
-              content="Make sure the info in your CV and bio is correct. Be yourself!"
-            />
-            <TextArticle
-              title="Stay professional"
-              content="A true professional never loses their composure even if the counterpart does."
-            />
-            <TextArticle
-              title="Zero tolerance"
-              content="Don't allow anyone to be rude to you. Report bad behavior."
-            />
+            {textArticles.map(({ title, content }) => (
+              <TextArticle key={title} title={title} content={content} />
+            ))}
           </Box>
         </Box>
         <KeyboardAvoidingView

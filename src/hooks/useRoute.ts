@@ -1,8 +1,8 @@
 import { RouteProp, useRoute as useRNRoute } from '@react-navigation/native'
+import { SignUpScreens } from 'navigation/types'
 
 type RouteParamList = {
-  // [SignUpScreens.rules]: { email: string };
-  // [SignUpScreens.signUpFirstName]: { email: string, firstName: string; };
+  [SignUpScreens.signUpEmail]: { isRecruiter?: boolean }
 }
 
 type RoutesProps = RouteProp<RouteParamList>

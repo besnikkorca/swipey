@@ -5,6 +5,7 @@ import useEmailForm from 'hooks/forms/useEmailForm'
 import useSignUpData from 'hooks/useSignUpData'
 import QuestionScreen from 'components/theme/organisms/QuestionScreen'
 import isValidEmail from 'utils/validation/isValidEmail'
+import useRoute from 'hooks/useRoute'
 
 const rules: ValidationRules = {
   maxLength: {
@@ -20,6 +21,9 @@ const rules: ValidationRules = {
 }
 
 export default function SignUpEmailScreen() {
+  const {
+    params: { isRecruiter },
+  } = useRoute()
   const { handleUpdate } = useSignUpData(SignUpScreens.rules)
 
   const { control, handleSubmit, formState } = useEmailForm()
@@ -36,7 +40,9 @@ export default function SignUpEmailScreen() {
       control={control}
       error={error}
       titleText="What's your email ?"
-      subText="Increase your hiring chances, verify your email."
+      subText={`Increase your ${
+        isRecruiter ? 'credibility' : 'hiring chances'
+      }, verify your email.`}
       placeholder="Enter email"
     />
   )

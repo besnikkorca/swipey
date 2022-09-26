@@ -12,10 +12,10 @@ import LoginScreen from 'screens/LoginScreen'
 import SignUpEmailScreen from 'screens/signup/SignUpEmailScreen'
 import SignUpFirstNameScreen from 'screens/signup/SignUpFirstNameScreen'
 import SignUpLastNameScreen from 'screens/signup/SignUpLastNameScreen'
+import SignUpCompanyNameScreen from 'screens/signup/SignUpCompanyNameScreen'
 import SignUpCVScreen from 'screens/signup/SignUpCVScreen'
 import SignUpPasswordScreen from 'screens/signup/SignUpPasswordScreen'
 import SignUpPerformScreen from 'screens/signup/SignUpPerformScreen'
-import SignUpRecruiterScreen from 'screens/signup/SignUpRecruiterScreen'
 import RulesScreen from 'screens/signup/RulesScreen'
 import UserContext from 'contexts/UserContext'
 import SignUpHeader from 'navigation/SignUpHeader'
@@ -75,6 +75,11 @@ export default function StackNavigator() {
                 name={SignUpScreens.signUpLastName}
                 component={SignUpLastNameScreen}
               />
+
+              <Stack.Screen
+                name={SignUpScreens.signUpCompanyName}
+                component={SignUpCompanyNameScreen}
+              />
               <Stack.Screen
                 name={SignUpScreens.signUpCV}
                 component={SignUpCVScreen}
@@ -88,10 +93,6 @@ export default function StackNavigator() {
                 component={SignUpPerformScreen}
               />
             </Stack.Group>
-            <Stack.Screen
-              name={SignUpScreens.signUpRecruiter}
-              component={SignUpRecruiterScreen}
-            />
           </>
         )}
       </Stack.Group>

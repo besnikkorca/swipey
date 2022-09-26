@@ -1,0 +1,11 @@
+{
+  "maxLength": {
+    "value": 35,
+    "message": "First name cannot contain more than 35 characters"
+  },
+  "minLength": {
+    "value": 2,
+    "message": "First name must have at least 2 characters"
+  },
+  "required": "First name is required"
+}

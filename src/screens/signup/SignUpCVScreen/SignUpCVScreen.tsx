@@ -4,11 +4,7 @@ import DocumentUploadScreen from 'components/theme/organisms/DocumentUploadScree
 import useSignUpData from 'hooks/useSignUpData'
 import useLastNameForm from 'hooks/forms/useLastNameForm'
 import { ValidationRules } from 'types/form'
-
-const rules: ValidationRules = {
-  maxLength: 100,
-  minLength: 5,
-}
+import rules from './rules.json'
 
 export default function SignUpCVScreen() {
   const { handleUpdate } = useSignUpData(SignUpScreens.signUpPassword)
@@ -22,7 +18,7 @@ export default function SignUpCVScreen() {
       fieldName="cvPath"
       buttonText="Upload"
       control={control}
-      rules={rules}
+      rules={rules as ValidationRules}
       error={error}
       titleText="Curriculum Vitae"
       subText="The easiest way to let us know who you are and what you're good at is to upload your CV."

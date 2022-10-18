@@ -8,7 +8,7 @@ import SecondaryButton from 'components/Form/buttons/SecondaryButton'
 import LinkButton from 'components/Form/buttons/LinkButton'
 import Text from 'components/theme/atoms/text/Text'
 import Link from 'components/theme/atoms/text/Link'
-import { SignUpScreens } from 'navigation/types'
+import { SignUpScreens, AuthScreens } from 'navigation/types'
 import useNavigation from 'hooks/useNavigation'
 import { AppLinks } from '_constants/links'
 import { Platform } from 'react-native'
@@ -16,14 +16,15 @@ import ScreenWrapper from 'screens/ScreenWrapper'
 
 export default function InitialScreen() {
   const navigation = useNavigation()
-  const [showRoles, setShowRoles] = useState(true)
+  const [showRoles, setShowRoles] = useState(false)
   const handleShowRoles = () => setShowRoles(!showRoles)
   // TODO: Implement signIn
-  const handleSignIn = () => alert('Implement sign in')
+  const handleSignIn = () => navigation.navigate(AuthScreens.login)
   // TODO: Implement signIn
   const handleTroubleSigningIn = () => alert('Implement trouble signing in')
 
-  const handleSignUpUser = () => navigation.navigate(SignUpScreens.signUpEmail)
+  const handleSignUpUser = () =>
+    navigation.navigate(SignUpScreens.signUpEmail, { isRecruiter: false })
 
   const handleSignUpRecruiter = () =>
     navigation.navigate(SignUpScreens.signUpEmail, { isRecruiter: true })

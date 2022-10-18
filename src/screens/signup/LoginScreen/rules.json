@@ -1,0 +1,24 @@
+{
+  "email": {
+    "maxLength": {
+      "value": 35,
+      "message": "email cannot contain more than 35 characters"
+    },
+    "minLength": {
+      "value": 2,
+      "message": "email must have at least 2 characters"
+    },
+    "required": "email is required"
+  },
+  "password": {
+    "maxLength": {
+      "value": 35,
+      "message": "password cannot contain more than 35 characters"
+    },
+    "minLength": {
+      "value": 2,
+      "message": "password must have at least 2 characters"
+    },
+    "required": "password is required"
+  }
+}

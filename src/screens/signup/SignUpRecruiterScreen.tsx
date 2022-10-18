@@ -7,7 +7,7 @@ import { themeModeColors } from '_constants/theme'
 
 const initialFormValue = {
   email: `besnik.korca${Math.round(Math.random() * 100)}@gmail.com`,
-  password: 'testtest',
+  password: 'testtest1',
 }
 
 function userFormReducer(state: any, action: any) {

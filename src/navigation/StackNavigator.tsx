@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
@@ -8,7 +7,7 @@ import { AuthScreens, AppScreens, SignUpScreens } from './types'
 import HomeScreen from 'screens/HomeScreen'
 import AboutScreen from 'screens/AboutScreen'
 import InitialScreen from 'screens/InitialScreen'
-import LoginScreen from 'screens/LoginScreen'
+import LoginScreen from 'screens/signup/LoginScreen/LoginScreen'
 import SignUpEmailScreen from 'screens/signup/SignUpEmailScreen'
 import SignUpFirstNameScreen from 'screens/signup/SignUpFirstNameScreen'
 import SignUpLastNameScreen from 'screens/signup/SignUpLastNameScreen'
@@ -17,9 +16,9 @@ import SignUpCVScreen from 'screens/signup/SignUpCVScreen'
 import SignUpPasswordScreen from 'screens/signup/SignUpPasswordScreen'
 import SignUpPerformScreen from 'screens/signup/SignUpPerformScreen'
 import RulesScreen from 'screens/signup/RulesScreen'
-import UserContext from 'contexts/UserContext'
 import SignUpHeader from 'navigation/SignUpHeader'
 import Header from 'navigation/Header'
+import useUserData from 'hooks/useUserData'
 
 const Stack = createNativeStackNavigator()
 
@@ -28,11 +27,11 @@ const options: NativeStackNavigationOptions = {
 }
 
 export default function StackNavigator() {
-  const { user } = useContext(UserContext)
+  const { isLoggedIn } = useUserData()
   return (
     <Stack.Navigator>
       <Stack.Group screenOptions={options}>
-        {user ? (
+        {isLoggedIn ? (
           <Stack.Group
             screenOptions={
               {

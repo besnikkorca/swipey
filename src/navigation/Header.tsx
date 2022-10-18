@@ -10,7 +10,7 @@ type Props = {
 }
 
 export default function Header({ navigation }: Props): JSX.Element {
-  const handleToggleDrawer = () => navigation.openDrawer()
+  const handleToggleDrawer = () => navigation?.openDrawer()
   return (
     <>
       <Box safeAreaTop {...themeModeColorsBAW} />

@@ -5,11 +5,11 @@ import useUserData from '../hooks/useUserData'
 import AppDrawer from './DrawerNavigator/AppDrawer'
 
 export default function Navigation() {
-  const { user } = useUserData()
+  const { isLoggedIn } = useUserData()
 
   return (
     <NavigationContainer>
-      {user ? <AppDrawer /> : <StackNavigator />}
+      {isLoggedIn ? <AppDrawer /> : <StackNavigator />}
     </NavigationContainer>
   )
 }

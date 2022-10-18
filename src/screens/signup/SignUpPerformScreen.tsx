@@ -40,9 +40,11 @@ export default function SignUpPerformScreen() {
         cvPath: data.cvPath,
         isRecruiter,
       })
-      setIsLoading(false)
-      setTimeout(() => {
-        handleUpdate({
+      // FIXME: Component is already unmounted when it reaches here since SessionManager.signUp
+      // creates user and authenticates causing navigation to go to some other page
+      // setIsLoading(false)
+      setTimeout(async () => {
+        await handleUpdate({
           ...signUpInitialValues,
         })
       }, 1000)

@@ -1,35 +1,25 @@
 import { Box, HStack, View, VStack } from 'native-base'
 import RoundButton from 'components/Form/buttons/RoundButton'
 import Text from '../../atoms/text/Text'
-import Title from '../../atoms/text/Title'
-import Subtitle from '../../atoms/text/Subtitle'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { GenericVoidFunc } from 'types/global'
 import Icon from 'components/theme/atoms/Icon'
-import { UserWithDetails } from 'types/user'
+import { JobPosting } from 'types/jobposting'
 
 const styles = StyleSheet.create({
   opacityStyles: { flex: 1 },
 })
 
 type Props = {
-  showUserDetails: boolean
-  showTutorial: boolean
-  user: UserWithDetails
+  card: JobPosting
   buttons: { iconName: string; onPress: GenericVoidFunc; color: string }[]
-  handlePressLeft: GenericVoidFunc
-  handlePressRight: GenericVoidFunc
   handlePressInfo: GenericVoidFunc
 }
 
-export function ImageDetails({
-  user,
+export default function JobCardDetails({
+  card,
   buttons,
-  handlePressLeft,
-  handlePressRight,
   handlePressInfo,
-  showTutorial,
-  showUserDetails,
 }: Props) {
   return (
     <Box
@@ -58,14 +48,8 @@ export function ImageDetails({
             <VStack flex={1} justifyContent="flex-end">
               <VStack mx="2" my="4">
                 <HStack justifyContent="space-between" mb="2">
-                  <HStack alignItems="flex-end">
-                    <Title fontWeight="bold" color="white">
-                      {user.firstName}
-                    </Title>
-                    <Subtitle fontSize="3xl" color="white" mb={1}>
-                      &nbsp;
-                      {user.age}
-                    </Subtitle>
+                  <HStack alignItems="center">
+                    <Text>Contact: {card.contact}</Text>
                   </HStack>
                   <HStack alignItems="center">
                     <Text>Read more &nbsp;</Text>
@@ -78,7 +62,7 @@ export function ImageDetails({
                   </HStack>
                 </HStack>
                 <HStack>
-                  {user.hobbies.map((hobby, idx) => (
+                  {card.technologies.map((hobby, idx) => (
                     <View
                       key={hobby}
                       ml={idx === 0 ? 0 : 2}

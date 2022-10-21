@@ -1,17 +1,17 @@
-import { Dimensions, Image, ImageStyle } from 'react-native'
-import ImagesProgressLines from './ImagesProgressLines'
-import JobDetails from './JobDetails'
-import { ImageDetails } from './ImageDetails'
-import SwipeText from './SwipeText'
+import { Dimensions } from 'react-native'
 import { View } from 'native-base'
 import { CardsProps } from './types'
+import ImagesProgressLines from './ImagesProgressLines'
+import SwipeText from './SwipeText'
+import { CardSharedData, SectionSharedData } from 'types/employee'
 
 export const SCREEN_HEIGHT = Dimensions.get('window').height
 export const SCREEN_WIDTH = Dimensions.get('window').width
 
-const USER_DETAILS_IDX = 0
-
-export default function Cards({
+export default function Cards<
+  T extends CardSharedData<K>,
+  K extends SectionSharedData
+>({
   isCurrentCard,
   isNextCard,
   card,
@@ -21,15 +21,9 @@ export default function Cards({
   handlePressLeft,
   handlePressRight,
   handlePressInfo,
-}: CardsProps) {
-  const imageStyle: ImageStyle = {
-    flex: 1,
-    height: 'auto',
-    width: 'auto',
-    resizeMode: 'cover',
-    borderRadius: 10,
-  }
-
+  renderSection,
+  renderCardDetails,
+}: CardsProps<T, K>) {
   return (
     <>
       <ImagesProgressLines
@@ -61,25 +55,15 @@ export default function Cards({
             borderRadius={10}
             zIndex={isCurrentSection ? 100 : isNextSection ? 99 : 0}
           >
-            {section.type === 'image' ? (
-              <Image style={imageStyle} source={section?.src} />
-            ) : (
-              <JobDetails job={section.job} />
-            )}
+            {renderSection(section)}
           </View>
         )
       })}
-      <ImageDetails
-        {...{
-          showUserDetails: USER_DETAILS_IDX === sectionIdx,
-          showTutorial: false,
-          user: card,
-          buttons,
-          handlePressLeft,
-          handlePressRight,
-          handlePressInfo,
-        }}
-      />
+      {renderCardDetails({
+        card,
+        buttons,
+        handlePressInfo,
+      })}
     </>
   )
 }

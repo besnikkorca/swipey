@@ -1,14 +1,20 @@
 import { View } from 'native-base'
+import { CardSharedData, SectionSharedData } from 'types/employee'
 import CardsContainer from './CardsContainer'
 import { SwiperProps } from './types'
 
-export default function Swiper({
+export default function Swiper<
+  T extends CardSharedData<K>,
+  K extends SectionSharedData
+>({
   handleGoBack,
   handleDislike,
   handleStar,
   handleLike,
   cards,
-}: SwiperProps) {
+  renderSection,
+  renderCardDetails,
+}: SwiperProps<T, K>) {
   const buttons = [
     {
       iconName: 'replay',
@@ -34,7 +40,12 @@ export default function Swiper({
 
   return (
     <View flex={1} my={3}>
-      <CardsContainer buttons={buttons} cards={cards} />
+      <CardsContainer<T, K>
+        renderCardDetails={renderCardDetails}
+        renderSection={renderSection}
+        buttons={buttons}
+        cards={cards}
+      />
     </View>
   )
 }

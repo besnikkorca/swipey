@@ -1,13 +1,13 @@
 import Text from 'components/theme/atoms/text/Text'
 import Title from 'components/theme/atoms/text/Title'
 import { Divider, HStack, View } from 'native-base'
-import { Job } from 'types/Job'
+import { JobPostingJob } from 'types/jobposting'
 
 type Props = {
-  job: Job
+  job: JobPostingJob
 }
 
-export default function JobDetails({ job }: Props) {
+export default function JobOfferDetails({ job }: Props) {
   const initialText = job.description.split('\n')
 
   return (
@@ -18,9 +18,7 @@ export default function JobDetails({ job }: Props) {
       <Divider my="2" />
       <HStack justifyContent="space-between" mb="4">
         <Text>{job.companyName}</Text>
-        <Text>
-          {job.startDate} - {job.endDate}
-        </Text>
+        <Text>Posted on: {job.postedOn}</Text>
       </HStack>
       {initialText.map((line) => (
         <Text key={line} textAlign="left">

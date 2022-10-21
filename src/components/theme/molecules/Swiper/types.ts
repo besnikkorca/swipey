@@ -1,5 +1,5 @@
-import React from 'react'
-import { Animated, ImageSourcePropType } from 'react-native'
+import { Animated } from 'react-native'
+import { CardSharedData, SectionSharedData } from 'types/employee'
 import { GenericVoidFunc } from 'types/global'
 
 type Button = {
@@ -7,61 +7,54 @@ type Button = {
   onPress: GenericVoidFunc
   color: string
 }
-
-export interface Job {
-  position: string
-  companyName: string
-  startDate: string
-  endDate: string
-  description: string
-}
-
-interface SectionSharedData {
-  id: number
-}
-
-interface JobSpecificData {
-  type: 'job'
-  job: Job
-}
-
-interface ImageSpecificData {
-  type: 'image'
-  path: string
-  src: ImageSourcePropType
-}
-
-export type Section = SectionSharedData & (JobSpecificData | ImageSpecificData)
-
-export interface Card {
-  uid: number
-  firstName: string
-  age: number
-  hobbies: string[]
-  sections: Section[]
-}
-
-export interface CardsProps {
+export interface CardsProps<
+  T extends CardSharedData<K>,
+  K extends SectionSharedData
+> {
   isCurrentCard: boolean
   isNextCard: boolean
-  card: Card
+  card: T
   sectionIdx: number
   position: Animated.ValueXY
   buttons: Button[]
   handlePressLeft: GenericVoidFunc
   handlePressRight: GenericVoidFunc
   handlePressInfo: GenericVoidFunc
+  renderSection: (section: K) => JSX.Element
+  renderCardDetails: RenderCardDetailsFunc<T, K>
 }
 
-export interface CardsContainerProps {
-  cards: Card[]
+export interface CardsContainerProps<
+  T extends CardSharedData<K>,
+  K extends SectionSharedData
+> {
+  cards: T[]
   buttons: Button[]
+  renderSection: (section: K) => JSX.Element
+  renderCardDetails: RenderCardDetailsFunc<T, K>
 }
-
-export interface SwiperProps {
-  cards: Card[]
+export interface SwiperProps<
+  T extends CardSharedData<K>,
+  K extends SectionSharedData
+> {
+  cards: T[]
+  renderSection: (section: K) => JSX.Element
+  renderCardDetails: RenderCardDetailsFunc<T, K>
   handleGoBack: GenericVoidFunc
   handleDislike: GenericVoidFunc
   handleStar: GenericVoidFunc
   handleLike: GenericVoidFunc
 }
+
+export type RenderCardDetailsFunc<
+  T extends CardSharedData<K>,
+  K extends SectionSharedData
+> = ({
+  card,
+  buttons,
+  handlePressInfo,
+}: {
+  card: T
+  buttons: Button[]
+  handlePressInfo: GenericVoidFunc
+}) => JSX.Element

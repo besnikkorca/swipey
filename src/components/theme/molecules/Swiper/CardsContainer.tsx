@@ -5,11 +5,17 @@ import useSwiperPanResponder from './hooks/useSwiperPanResponderData'
 import { CardsContainerProps } from './types'
 import { View } from 'native-base'
 import Cards from './Cards'
+import { CardSharedData, SectionSharedData } from 'types/employee'
 
-export default function CardsContainer({
+export default function CardsContainer<
+  T extends CardSharedData<K>,
+  K extends SectionSharedData
+>({
   cards,
   buttons,
-}: CardsContainerProps) {
+  renderSection,
+  renderCardDetails,
+}: CardsContainerProps<T, K>) {
   const {
     cardIdx,
     setCardIdx,
@@ -74,8 +80,10 @@ export default function CardsContainer({
               right={0}
               mx="2"
             >
-              <Cards
+              <Cards<T, K>
                 {...{
+                  renderSection,
+                  renderCardDetails,
                   isCurrentCard,
                   isNextCard,
                   card,

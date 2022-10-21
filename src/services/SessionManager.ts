@@ -4,12 +4,16 @@ export default {
   logOut() {
     return auth().signOut()
   },
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, displayName?: string) {
     return auth()
       .createUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        return res
-      })
+      .then((result) =>
+        result.user
+          .updateProfile({
+            displayName,
+          })
+          .then(() => result)
+      )
       .catch((err) => {
         if (err.code === 'auth/email-already-in-use') {
           // eslint-disable-next-line no-console

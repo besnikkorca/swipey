@@ -1,26 +1,17 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import { NavigationProp } from '@react-navigation/native'
-import { Icon, Box, Input, KeyboardAvoidingView, View } from 'native-base'
-import Button from 'components/Form/Button'
-import Lottie from 'lottie-react-native'
-import {
-  NativeSyntheticEvent,
-  Platform,
-  TextInputChangeEventData,
-} from 'react-native'
+import { Icon, Box } from 'native-base'
+import { Platform } from 'react-native'
 import SessionManager from 'services/SessionManager'
 
-import { AuthScreens, AppScreens, SignUpScreens } from 'navigation/types'
-import { themeModeColors } from '_constants/theme'
+import { SignUpScreens } from 'navigation/types'
 import useNavigation from 'hooks/useNavigation'
 import ScreenWrapper from '../../ScreenWrapper'
 
-import { useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import BrandIconUncolored from 'components/theme/atoms/icons/BrandIconUncolored'
 import PrimaryButton from 'components/Form/buttons/PrimaryButton'
-import SecondaryButton from 'components/Form/buttons/SecondaryButton'
 import LinkButton from 'components/Form/buttons/LinkButton'
 import Text from 'components/theme/atoms/text/Text'
 import Link from 'components/theme/atoms/text/Link'

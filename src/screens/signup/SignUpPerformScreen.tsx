@@ -27,7 +27,11 @@ export default function SignUpPerformScreen() {
   useEffect(() => {
     const signUpUser = async () => {
       setIsLoading(true)
-      const { user } = await SessionManager.signUp(data.email, data.password)
+      const { user } = await SessionManager.signUp(
+        data.email,
+        data.password,
+        `${data.firstName} ${data.lastName}`
+      )
 
       await user.updateProfile({
         displayName: `${data.firstName} ${data.lastName}`,

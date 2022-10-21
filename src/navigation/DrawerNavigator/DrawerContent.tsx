@@ -15,8 +15,10 @@ import {
 } from 'native-base'
 import SessionManager from 'services/SessionManager'
 import ToggleDarkMode from 'components/theme/ToggleDarkMode'
+import useUserData from 'hooks/useUserData'
 
 export default function DrawerContent(props: DrawerContentComponentProps) {
+  const { user, isRecruiter } = useUserData()
   return (
     <DrawerContentScrollView {...props}>
       <VStack
@@ -31,7 +33,8 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
             Swipey
           </Text>
           <Text fontSize="14" mt="1" color="gray.500" fontWeight="500">
-            john_doe@gmail.com
+            {user?.displayName || user?.email} -{' '}
+            {isRecruiter ? 'recruiter' : 'user'}
           </Text>
         </Box>
         <VStack divider={<Divider />} space="4">

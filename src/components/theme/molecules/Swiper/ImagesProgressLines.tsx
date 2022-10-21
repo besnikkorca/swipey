@@ -1,13 +1,13 @@
 import { HStack, View } from 'native-base'
-import { UserWithDetails } from 'types/user'
+import { Card } from './types'
 
-type Props = { user: UserWithDetails; imageIdx: number }
+type Props = { card: Card; imageIdx: number }
 
-export default function ImagesProgressLines({ user, imageIdx }: Props) {
+export default function ImagesProgressLines({ card, imageIdx }: Props) {
   return (
-    <HStack position="absolute" zIndex={100} top={2} mx={2}>
-      {user.sections.length > 1 &&
-        user.sections.map(({ id }, idx) => (
+    <HStack position="absolute" zIndex={101} top={2} mx={2}>
+      {card.sections.length > 1 &&
+        card.sections.map(({ id }, idx) => (
           <View
             mx={1}
             key={id}

@@ -2,10 +2,8 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack'
-import { AuthScreens, AppScreens, SignUpScreens } from './types'
+import { AuthScreens, SignUpScreens } from './types'
 
-import HomeScreen from 'screens/HomeScreen'
-import AboutScreen from 'screens/AboutScreen'
 import InitialScreen from 'screens/InitialScreen'
 import LoginScreen from 'screens/signup/LoginScreen/LoginScreen'
 import SignUpEmailScreen from 'screens/signup/SignUpEmailScreen'
@@ -27,73 +25,55 @@ const options: NativeStackNavigationOptions = {
 }
 
 export default function StackNavigator() {
-  const { isLoggedIn } = useUserData()
   return (
     <Stack.Navigator>
       <Stack.Group screenOptions={options}>
-        {isLoggedIn ? (
+        <>
+          <Stack.Screen name={AuthScreens.initial} component={InitialScreen} />
+          <Stack.Screen name={AuthScreens.login} component={LoginScreen} />
+          <Stack.Screen name={SignUpScreens.rules} component={RulesScreen} />
           <Stack.Group
-            screenOptions={
-              {
-                // headerShown: true,
-                // header: Header,
-              }
-            }
+            screenOptions={{
+              headerShown: true,
+              header: SignUpHeader,
+            }}
           >
-            <Stack.Screen name={AppScreens.home} component={HomeScreen} />
-            <Stack.Screen name={AppScreens.about} component={AboutScreen} />
-          </Stack.Group>
-        ) : (
-          <>
             <Stack.Screen
-              name={AuthScreens.initial}
-              component={InitialScreen}
-            />
-            <Stack.Screen name={AuthScreens.login} component={LoginScreen} />
-            <Stack.Screen name={SignUpScreens.rules} component={RulesScreen} />
-            <Stack.Group
-              screenOptions={{
+              options={{
                 headerShown: true,
-                header: SignUpHeader,
+                animation: 'slide_from_bottom',
+                header: Header,
               }}
-            >
-              <Stack.Screen
-                options={{
-                  headerShown: true,
-                  animation: 'slide_from_bottom',
-                  header: Header,
-                }}
-                name={SignUpScreens.signUpEmail}
-                component={SignUpEmailScreen}
-              />
-              <Stack.Screen
-                name={SignUpScreens.signUpFirstName}
-                component={SignUpFirstNameScreen}
-              />
-              <Stack.Screen
-                name={SignUpScreens.signUpLastName}
-                component={SignUpLastNameScreen}
-              />
+              name={SignUpScreens.signUpEmail}
+              component={SignUpEmailScreen}
+            />
+            <Stack.Screen
+              name={SignUpScreens.signUpFirstName}
+              component={SignUpFirstNameScreen}
+            />
+            <Stack.Screen
+              name={SignUpScreens.signUpLastName}
+              component={SignUpLastNameScreen}
+            />
 
-              <Stack.Screen
-                name={SignUpScreens.signUpCompanyName}
-                component={SignUpCompanyNameScreen}
-              />
-              <Stack.Screen
-                name={SignUpScreens.signUpCV}
-                component={SignUpCVScreen}
-              />
-              <Stack.Screen
-                name={SignUpScreens.signUpPassword}
-                component={SignUpPasswordScreen}
-              />
-              <Stack.Screen
-                name={SignUpScreens.signUpPerform}
-                component={SignUpPerformScreen}
-              />
-            </Stack.Group>
-          </>
-        )}
+            <Stack.Screen
+              name={SignUpScreens.signUpCompanyName}
+              component={SignUpCompanyNameScreen}
+            />
+            <Stack.Screen
+              name={SignUpScreens.signUpCV}
+              component={SignUpCVScreen}
+            />
+            <Stack.Screen
+              name={SignUpScreens.signUpPassword}
+              component={SignUpPasswordScreen}
+            />
+            <Stack.Screen
+              name={SignUpScreens.signUpPerform}
+              component={SignUpPerformScreen}
+            />
+          </Stack.Group>
+        </>
       </Stack.Group>
     </Stack.Navigator>
   )

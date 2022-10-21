@@ -18,12 +18,11 @@ export default function UserProvider({ children }: Props): JSX.Element {
   async function onAuthStateChanged(user: User) {
     setUser(user)
     if (user) {
-      const result = await DBManager.getDoc<UserDetails>(
+      const data = await DBManager.getDocData<UserDetails>(
         Collections.users,
         user.uid
       )
-      result.data
-      setUserDetails(result.data || undefined)
+      setUserDetails(data)
     } else {
       setUserDetails(undefined)
     }

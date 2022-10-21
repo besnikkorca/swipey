@@ -40,18 +40,9 @@ export function ImageDetails({
       width="100%"
       zIndex={101}
     >
-      <VStack flex={1}>
-        <HStack flex={1}>
-          <TouchableOpacity
-            style={styles.opacityStyles}
-            onPress={handlePressLeft}
-          ></TouchableOpacity>
-          <TouchableOpacity
-            style={styles.opacityStyles}
-            onPress={handlePressRight}
-          ></TouchableOpacity>
-        </HStack>
+      <VStack flex={1} justifyContent="flex-end">
         <HStack
+          borderRadius={10}
           flex={0.4}
           backgroundColor={{
             linearGradient: {

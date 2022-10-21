@@ -4,11 +4,23 @@ import firestore, {
 import { Collections } from 'types/database'
 
 export default {
+  findDoc<T extends FirebaseFirestoreTypes.DocumentData>(
+    collection: Collections,
+    uid: string
+  ) {
+    return firestore().collection<T>(collection).doc(uid)
+  },
   getDoc<T extends FirebaseFirestoreTypes.DocumentData>(
     collection: Collections,
     uid: string
   ) {
-    return firestore().collection<T>(collection).doc(uid).get()
+    return this.findDoc<T>(collection, uid).get()
+  },
+  getDocData<T extends FirebaseFirestoreTypes.DocumentData>(
+    collection: Collections,
+    uid: string
+  ) {
+    return this.getDoc<T>(collection, uid).then((doc) => doc.data())
   },
   observeRealTime(
     collection: string,

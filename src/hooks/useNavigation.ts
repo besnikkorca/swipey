@@ -1,9 +1,9 @@
 import { useNavigation as useRNNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
-import { AuthScreens, SignUpScreens } from 'navigation/types'
+import { ScreenNames } from 'navigation/types'
 
-type StackParamList = Record<SignUpScreens | AuthScreens, {} | undefined>
+type StackParamList = Record<ScreenNames, {} | undefined>
 
 type NavigationProps = NativeStackNavigationProp<StackParamList>
 

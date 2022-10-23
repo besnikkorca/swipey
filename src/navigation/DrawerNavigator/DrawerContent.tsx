@@ -16,9 +16,24 @@ import {
 import SessionManager from 'services/SessionManager'
 import ToggleDarkMode from 'components/theme/ToggleDarkMode'
 import useUserData from 'hooks/useUserData'
+import useNavigation from 'hooks/useNavigation'
+import { AppScreens, TabsScreens } from 'navigation/types'
 
 export default function DrawerContent(props: DrawerContentComponentProps) {
   const { user, isRecruiter } = useUserData()
+
+  const buttons = [
+    {
+      iconName: 'briefcase-plus',
+      label: 'add job',
+      onPress: () => {
+        console.log(`Navigate to - `, AppScreens.addJobPosting)
+        return props.navigation.navigate(AppScreens.addJobPosting)
+      },
+    },
+    { iconName: 'bookmark', label: 'logout', onPress: SessionManager.logOut },
+  ]
+
   return (
     <DrawerContentScrollView {...props}>
       <VStack
@@ -43,18 +58,20 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
               <ToggleDarkMode />
             </VStack>
             <VStack space="3">
-              <Pressable px="5" py="3" onPress={SessionManager.logOut}>
-                <HStack space="7" alignItems="center">
-                  <Icon
-                    color="gray.500"
-                    size="5"
-                    as={<MaterialCommunityIcons name="bookmark" />}
-                  />
-                  <Text fontWeight="500" color="gray.700">
-                    Logout
-                  </Text>
-                </HStack>
-              </Pressable>
+              {buttons.map(({ label, onPress, iconName }) => (
+                <Pressable key={label} px="5" py="3" onPress={onPress}>
+                  <HStack space="7" alignItems="center">
+                    <Icon
+                      color="gray.500"
+                      size="5"
+                      as={<MaterialCommunityIcons name={iconName} />}
+                    />
+                    <Text fontWeight="500" color="gray.700">
+                      {label}
+                    </Text>
+                  </HStack>
+                </Pressable>
+              ))}
             </VStack>
           </VStack>
         </VStack>

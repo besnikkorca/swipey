@@ -9,7 +9,8 @@ import DocumentUploader from 'components/Form/DocumentUploader'
 import { GenericVoidFunc } from 'types/global'
 
 type Props = {
-  titleText: string
+  mx?: number
+  titleText?: string
   subText?: string
   ctaText?: string
   error?: string | undefined
@@ -25,6 +26,7 @@ export default function DocumentUploadScreen({
   rules,
   error,
   buttonText,
+  mx = 10,
   onUpload,
 }: Props) {
   return (
@@ -33,9 +35,9 @@ export default function DocumentUploadScreen({
       safeAreaBottom={true}
       themeColors={themeModeColorsBAW}
     >
-      <Box flex={1} alignItems="stretch" mx="10">
+      <Box flex={1} alignItems="stretch" mx={mx}>
         <Box flex={1}>
-          <Title>{titleText}</Title>
+          {titleText && <Title>{titleText}</Title>}
           {subText && (
             <Text color="gray.400" fontSize="md" textAlign="left" mb="5" mt="2">
               {subText}

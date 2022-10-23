@@ -1,7 +1,7 @@
 import { useForm, UseFormProps } from 'react-hook-form'
 
 const defaultValues = {
-  email: 'besnik.korca1@gmail.com',
+  email: 'labinot.krasniqi1@gmail.com',
   password: 'testtest1',
 }
 

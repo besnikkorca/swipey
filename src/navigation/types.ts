@@ -14,6 +14,12 @@ export enum AuthScreens {
   login = 'login',
 }
 
+export enum AppScreens {
+  app = 'app',
+  addJobPosting = 'addJobPosting',
+  jobPosting = 'jobPosting',
+}
+
 export enum TabsScreens {
   swipeCompanies = 'swipeCompanies',
   likedByCompanies = 'likedByCompanies',
@@ -21,4 +27,4 @@ export enum TabsScreens {
   swipeEmployees = 'swipeEmployees',
 }
 
-export type ScreenNames = AuthScreens | SignUpScreens
+export type ScreenNames = AuthScreens | SignUpScreens | AppScreens
